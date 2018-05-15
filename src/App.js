@@ -5,6 +5,7 @@ import PlayerRegistration from './PlayerRegistration'
 import GameContainer from './GameContainer'
 
 
+
 class App extends Component {
   render() {
     return (
@@ -16,7 +17,8 @@ class App extends Component {
         <p className="App-intro">
          Need a player for your game? Sign up to see available players.
         </p>
-        <PlayerRegistration />
+        
+        <PlayerContainer/>
 
         <GameContainer />
 

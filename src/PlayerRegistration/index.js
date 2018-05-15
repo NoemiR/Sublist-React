@@ -39,7 +39,7 @@ class CreatePlayer extends Component {
 		return(
 			<div>
 			"i am the player registration form"
-			{this.props.logginError != '' ? <p className="login-error">{this.props.loginError}</p> : null }
+			{this.props.logginError !== '' ? <p className="login-error">{this.props.loginError}</p> : null }
         	<p><span className={this.state.registering ? "current" : null} onClick={this.registration}>Register</span> • <span className={this.state.registering ? null : "current"} onClick={this.loggingIn}>Log in</span></p>
 				<form onSubmit={this.handleSubmit}>
 					<input type="text" name="name" placeholder="name" onChange={this.updateItem}/>
