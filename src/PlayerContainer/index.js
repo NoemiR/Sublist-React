@@ -10,7 +10,7 @@ class PlayerContainer extends Component {
 			players: [],
 			modalOpen: false,
 			editPlayer: '',
-			loggedIn: true
+			loggedIn: false
 		}
 	}
 	componentDidMount(){
