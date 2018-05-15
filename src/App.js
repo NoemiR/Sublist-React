@@ -22,11 +22,12 @@ class App extends Component {
         <p className="App-intro">
          Need a player for your game? Sign up to see available players.
         </p>
-        
+
+        <button>Player</button>
         <PlayerContainer/>
 
-        <GameContainer />
-
+        <button>Team Rep</button>
+      
         <TeamContainer />
 
       </div>
