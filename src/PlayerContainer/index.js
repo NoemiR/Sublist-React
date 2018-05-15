@@ -3,6 +3,7 @@ import PlayerRegistration from '../PlayerRegistration';
 import Players from '../Players'
 import GameContainer from '../GameContainer'
 import './style.css'
+import PlayerLogin from '../PlayerLogin'
 
 
 class PlayerContainer extends Component {
@@ -12,7 +13,8 @@ class PlayerContainer extends Component {
 			players: [],
 			modalOpen: false,
 			editPlayer: '',
-			loggedIn: false
+			loggedIn: false,
+			register: true
 		}
 	}
 	componentDidMount(){
@@ -94,35 +96,46 @@ class PlayerContainer extends Component {
 			})
 		})
 		const parsedLoginResponse = await responsePromise.json();
-			if(parsedLoginResponse.success){
+		if(parsedLoginResponse.success){
+			this.setState({
+				loggedIn: true
+			})
+			this.getPlayers()
+			.then((players) => {
+				this.setState({players: players.all_players})
+			})
+			.catch((err) => {
+				console.log(err)
+			})
+			}else{
 				this.setState({
-					loggedIn: true
-				})
-				this.getPlayers()
-				.then((players) => {
-					this.setState({players: players.all_players})
-				})
-				.catch((err) => {
-					console.log(err)
-				})
-				}else{
-					this.setState({
-						loginError: parsedLoginResponse.message
-				})
-			}
+					loginError: parsedLoginResponse.message
+			})
+		}
 	}
 	
 	render(){
 		return (
-			<div> 
-				{this.state.loggedIn ?
-				<div>
-					<p>This is the playerContainer</p>
-					<GameContainer/>
+			<div>
+				{
+					this.state.loggedIn 
+					?
+					<div>
+						<Players players={this.state.players} getPlayers={this.getPlayers}/>
+						<GameContainer />
+					</div>
+					:
 
-					<Players players={this.state.players} getPlayers={this.getPlayers}/>
-				</div>
-				:<PlayerRegistration addPlayer={this.addPlayer} doRegister={this.doRegister}/>
+					<div> 
+
+						{
+							this.state.register 
+							? 
+							<PlayerRegistration addPlayer={this.addPlayer} doRegister={this.doRegister} /> 
+							: 
+							<PlayerLogin doLogin={this.doLogin} />
+						}
+					</div>
 				}
 			</div>
 		)
