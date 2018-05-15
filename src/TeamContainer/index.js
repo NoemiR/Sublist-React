@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import TeamLoginRegister from '../TeamLoginRegister'
 import Players from '../Players'
+import Games from '../Games'
+import PlayerGames from '../PlayerGames'
 import PlayerRegistration from '../PlayerRegistration'
 
 class TeamContainer extends Component {
@@ -9,6 +11,7 @@ class TeamContainer extends Component {
 
 		this.state = {
 			players: [],
+			games: [],
 			loginError: "",
       		loggedIn: false
 		}
@@ -23,16 +26,30 @@ class TeamContainer extends Component {
 		// .catch((err) => {
 		// 	console.log(err)
 		// })
+	
 	}
-	getPlayers = async () => {
-		const playersJson = await fetch('http://localhost:9292/player',{
+	getGames = async () => {
+
+		// console.log("This is before the fetch api call")
+
+		const gamesJson = await fetch("http://localhost:9292/games", {
+        	credentials: 'include'
+     	}); 
+		  const games = await gamesJson.json()
+		  console.log(games, "<-- This is games in getGames Function");
+	      return games
+		
+	}
+
+	getAvailPlayers = async (id) => {
+		const availplayersJson = await fetch("http://localhost:9292/available/games" + id + "/players", {
 			credentials: 'include'
 		})
-		const players = await playersJson.json();
-			console.log(players)
-			return players;
-			console.log(players)
+		const availPlayers = await availplayersJson.json()
+			console.log(availPlayers)
 	}
+
+
 
 	doLogin = async (username, password) => {
 			console.log("You are trying to Log In ");
@@ -53,10 +70,10 @@ class TeamContainer extends Component {
 	    	this.setState({
 	    		loggedIn: true
 	    	})
-		    this.getPlayers()
-	          .then((players) => {
-	            console.log(players)
-	            this.setState({players: players.all_players})
+		    this.getGames()
+	          .then((games) => {
+	            console.log(games)
+	            this.setState({games: games.all_games})
 	          })
 	          .catch((err) => {
 	            console.log(err)
@@ -82,9 +99,9 @@ class TeamContainer extends Component {
 				this.setState({
 					loggedIn: true
 				})
-					this.getPlayers()
-					.then((players) => {
-					this.setState({players: players.all_players})
+					this.getGames()
+					.then((games) => {
+					this.setState({games: games.all_games})
 					})
 					.catch((err) => {
 						console.log(err)
@@ -101,7 +118,7 @@ class TeamContainer extends Component {
 			<div>
 				{this.state.loggedIn ?
 			<div>
-				<Players players={this.state.players} getPlayers={this.getPlayers} />	
+				<PlayerGames games={this.state.games} getGames={this.getGames} />	
 			</div>
 			: 	<TeamLoginRegister doLogin={this.doLogin} doRegister={this.doRegister} />
 			}
