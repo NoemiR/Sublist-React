@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import PlayerRegistration from './PlayerRegistration'
+//import PlayerRegistration from './PlayerRegistration'
+import PlayerContainer from './PlayerContainer'
 
 
 
@@ -26,7 +27,8 @@ class App extends Component {
         <p className="App-intro">
          Need a player for your game? Sign up to see available players.
         </p>
-        <PlayerRegistration />
+        
+        <PlayerContainer/>
 
       </div>
     );
