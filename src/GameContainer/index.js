@@ -44,7 +44,7 @@ class GameContainer extends Component {
 
 			</div>
 
-			)
+		)
 	
 
 	}
