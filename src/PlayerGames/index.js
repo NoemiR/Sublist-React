@@ -7,7 +7,7 @@ const PlayerGames = ({games}) => {
 		return <li key={game.id}>{game.game_time} <br/>
 				{game.game_date} PM<br/>
 				{game.team_id} <br/>
-				{game.team1_id} VS. {game.team2_id}
+				Team {game.team1_id} VS. Team {game.team2_id} <br/>
 				<button>View Players</button></li>
 
 	})

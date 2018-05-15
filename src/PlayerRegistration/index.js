@@ -42,6 +42,7 @@ class CreatePlayer extends Component {
 					<input type='Submit' value="register"/>
 				</form>
 
+
 				<PlayerLogin />
 			</div>
 
