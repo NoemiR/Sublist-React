@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import PlayerLogin from '../PlayerLogin'
 
 class CreatePlayer extends Component {
 	constructor(){
@@ -40,23 +41,9 @@ class CreatePlayer extends Component {
 		          	<input type="text" name="phone number" placeholder="phone number"/>
 					<input type='Submit' value="register"/>
 				</form>
-				
-			
 
-
-
-
-			
-				
-
+				<PlayerLogin />
 			</div>
-
-
-
-
-
-
-
 
 		)
 	}

@@ -25,7 +25,6 @@ class App extends Component {
         
         <PlayerContainer/>
 
-        <GameContainer />
 
         <TeamContainer />
 
