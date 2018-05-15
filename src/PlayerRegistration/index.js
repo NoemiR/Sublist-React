@@ -11,30 +11,27 @@ class CreatePlayer extends Component {
 			email: '',
 			phone: '',
 			registering: false
-
-
-
 		}
 	}
-	 handleSubmit = (e) => {
+	handleSubmit = (e) => {
     	e.preventDefault();
     	if(this.state.registering) this.props.doRegister(this.state.username, this.state.password)
     	else this.props.doLogin(this.state.username, this.state.password)
-  		}
+  	}
 
-	  handleInput = (e) => {
-	    const whichField = e.currentTarget.name
-	    if(whichField === "username") this.setState({ username: e.currentTarget.value })
-	    else this.setState({password: e.currentTarget.value})
-	  }
-	  registration = () => {
+	handleInput = (e) => {
+	  const whichField = e.currentTarget.name
+	  if(whichField === "username") this.setState({ username: e.currentTarget.value })
+	  else this.setState({password: e.currentTarget.value})
+	}
+	registration = () => {
 	    this.setState({
-	     registering: true
+	     	registering: true
 	    })
-	  }
-	  loggingIn = () => {
+	}
+	loggingIn = () => {
     	this.setState({
-      	registering: false
+      		registering: false
     	})
   	}
 
@@ -54,6 +51,8 @@ class CreatePlayer extends Component {
 		          	<input type="text" name="phone number" placeholder="phone number"/>
 					<input type='Submit'/>
 				</form>
+
+				
 
 			</div>
 
