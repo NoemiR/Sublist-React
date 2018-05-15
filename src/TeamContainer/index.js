@@ -54,8 +54,8 @@ class TeamContainer extends Component {
 	    		loggedIn: true
 	    	})
 		    this.getPlayers()
-	          .then((items) => {
-	            console.log(items)
+	          .then((players) => {
+	            console.log(players)
 	            this.setState({players: players.all_players})
 	          })
 	          .catch((err) => {
@@ -101,9 +101,9 @@ class TeamContainer extends Component {
 			<div>
 				{this.state.loggedIn ?
 			<div>
-			<Players players={this.state.players} getPlayers={this.getPlayers} />	
+				<Players players={this.state.players} getPlayers={this.getPlayers} />	
 			</div>
-			: <TeamLoginRegister doLogin={this.doLogin} doRegister={this.doRegister} />
+			: 	<TeamLoginRegister doLogin={this.doLogin} doRegister={this.doRegister} />
 			}
 			</div>
 
