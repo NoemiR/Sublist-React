@@ -13,7 +13,7 @@ const Games = ({games}) => {
 
 		<div>
 			<h2>Game Schedule</h2>
-			<ul>{gamesList}</ul>
+		 <ul>{gamesList}</ul>
 		</div>
 
 

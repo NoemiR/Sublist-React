@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import PlayerRegistration from './PlayerRegistration'
+import PlayerContainer from './PlayerContainer'
 import GameContainer from './GameContainer'
 
 
@@ -20,8 +21,7 @@ class App extends Component {
         
         <PlayerContainer/>
 
-        <GameContainer />
-
+     
       </div>
     );
   }
