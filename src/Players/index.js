@@ -5,6 +5,7 @@ import React from 'react';
 
 
 const Players = ({players}) => {
+	console.log(players, 'hey')
 
 
 	const playerList = players.map((player, i) => {

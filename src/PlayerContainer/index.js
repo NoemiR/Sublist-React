@@ -10,14 +10,14 @@ class PlayerContainer extends Component {
 			players: [],
 			modalOpen: false,
 			editPlayer: '',
-			loggedIn: false
+			loggedIn: true
 		}
 	}
 	componentDidMount(){
 		this.getPlayers()
 
 		.then((players) => {
-			this.setState({players: players.player})
+			this.setState({players: players.all_players})
 		})
 		.catch((err) => {
 			console.log(err)
@@ -68,7 +68,7 @@ class PlayerContainer extends Component {
 			})
 			this.getPlayers()
 			.then((players) => {
-				this.setState({players: players.player})
+				this.setState({players: players.all_players})
 			})
 			.catch((err) => {
 				console.log(err)
@@ -83,15 +83,15 @@ class PlayerContainer extends Component {
 	render(){
 		return (
 			<div> 
-			{this.state.loggedIn ?
+				{this.state.loggedIn ?
 				<div>
-			<p>This is the playerContainer</p>
+					<p>This is the playerContainer</p>
 
-			<Players players={this.state.players}/>
+					<Players players={this.state.players} getPlayers={this.getPlayers}/>
+				</div>
+				:<PlayerRegistration addPlayer={this.addPlayer} doRegister={this.doRegister}/>
+				}
 			</div>
-			:<PlayerRegistration addPlayer={this.addPlayer} doRegister={this.doRegister}/>
-		}
-		</div>
 		)
 	}
 }
