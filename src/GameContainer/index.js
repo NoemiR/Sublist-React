@@ -22,7 +22,7 @@ class GameContainer extends Component {
 	}
 	getGames = async () => {
 
-		console.log("This is before the fetch api call")
+		// console.log("This is before the fetch api call")
 
 		const gamesJson = await fetch("http://localhost:9292/games", {
         	credentials: 'include'
@@ -34,7 +34,7 @@ class GameContainer extends Component {
 	}
 	render() {
 
-		console.log(this.state, "<--- this.state in render in GameContainer");
+		// console.log(this.state, "<--- this.state in render in GameContainer");
 		return (
 
 			<div>

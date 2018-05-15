@@ -1,0 +1,14 @@
+.current {
+	background-color: lightblue;
+	color: black;
+}
+
+span {
+	cursor: pointer
+}
+/*
+.login-error {
+	border: 2px solid red;
+	padding: 20px;
+	background-color: orange;
+}*/

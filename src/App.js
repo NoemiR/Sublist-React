@@ -4,6 +4,10 @@ import './App.css';
 import PlayerRegistration from './PlayerRegistration'
 import PlayerContainer from './PlayerContainer'
 import GameContainer from './GameContainer'
+import TeamLoginRegister from './TeamLoginRegister'
+import TeamContainer from './TeamContainer'
+
+
 
 
 
@@ -22,6 +26,8 @@ class App extends Component {
         <PlayerContainer/>
 
         <GameContainer />
+
+        <TeamContainer />
 
       </div>
     );

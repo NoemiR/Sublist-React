@@ -1,9 +1,5 @@
 import React from 'react';
 
-
-
-
-
 const Players = ({players}) => {
 	console.log(players, 'hey')
 
@@ -18,7 +14,7 @@ const Players = ({players}) => {
 	})
 	return (
 		<div>
-		"i am players"
+	
 
 		<ul>
 		{playerList}
