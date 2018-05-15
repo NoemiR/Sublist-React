@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import PlayerRegistration from '../PlayerRegistration';
 import Players from '../Players'
+import GameContainer from '../GameContainer'
+import './style.css'
 
 
 class PlayerContainer extends Component {
@@ -46,9 +48,39 @@ class PlayerContainer extends Component {
 	}
 
 
-	doRegister = async (username, password) => {
+	doRegister = async (name, username, password, pos, email, phone) => {
+		const responsePromise = await fetch('http://localhost:9292/player/register', {
+			method: 'POST',
+			credentials: 'include', 
+			body: JSON.stringify({
+				name: name,
+				username: username,
+				password: password,
+				pos: pos,
+				email: email,
+				phone: phone
+			})
+		})
+		const parsedLoginResponse = await responsePromise.json();
+			if(parsedLoginResponse.success){
+				this.setState({
+					loggedIn: true
+				})
+				this.getPlayers()
+				.then((players) => {
+					this.setState({players: players.all_players})
+				})
+				.catch((err) => {
+					console.log(err)
+				})
+				}else{
+					this.setState({
+						loginError: parsedLoginResponse.message
+					})
+				}
+			}
 
-	}
+
 
 
 
@@ -62,23 +94,23 @@ class PlayerContainer extends Component {
 			})
 		})
 		const parsedLoginResponse = await responsePromise.json();
-		if(parsedLoginResponse.success){
-			this.setState({
-				loggedIn: true
-			})
-			this.getPlayers()
-			.then((players) => {
-				this.setState({players: players.all_players})
-			})
-			.catch((err) => {
-				console.log(err)
-			})
-			}else{
+			if(parsedLoginResponse.success){
 				this.setState({
-					loginError: parsedLoginResponse.message
+					loggedIn: true
+				})
+				this.getPlayers()
+				.then((players) => {
+					this.setState({players: players.all_players})
+				})
+				.catch((err) => {
+					console.log(err)
+				})
+				}else{
+					this.setState({
+						loginError: parsedLoginResponse.message
 				})
 			}
-		}
+	}
 	
 	render(){
 		return (
@@ -86,6 +118,7 @@ class PlayerContainer extends Component {
 				{this.state.loggedIn ?
 				<div>
 					<p>This is the playerContainer</p>
+					<GameContainer/>
 
 					<Players players={this.state.players} getPlayers={this.getPlayers}/>
 				</div>
