@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import PlayerRegistration from './PlayerRegistration'
+import PlayerLogin from './PlayerLogin'
 import PlayerContainer from './PlayerContainer'
 import GameContainer from './GameContainer'
 import TeamLoginRegister from './TeamLoginRegister'
@@ -25,11 +26,11 @@ class App extends Component {
 
 
         <button>Player</button>
-        <PlayerContainer/>
+        <PlayerRegistration/> <PlayerLogin/>
 
         <button>Team Rep</button>
       
-        <TeamContainer />
+        <TeamLoginRegister />
 
       </div>
     );

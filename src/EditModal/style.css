@@ -1,0 +1,13 @@
+.Edit-Modal-Closed{
+	display: none;
+}
+
+.Edit-Modal-Open{
+	border: 1px solid red;
+	display: block;
+	position: fixed;
+	top: 50;
+	left: 50;
+	transform: translate(50, 50);
+	
+}
