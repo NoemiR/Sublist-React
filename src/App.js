@@ -13,28 +13,44 @@ import TeamContainer from './TeamContainer'
 
 
 class App extends Component {
+    constructor(){
+      super();
+      this.state = {
+        playerLogin: '',
+        teamLogin: ''
+      }
+    }
+
+
+
+
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to Sublist</h1>
-        </header>
-        <p className="App-intro">
-         Need a player for your game? Sign up to see available players.
-        </p>
+     <div>
+          {this.state.playerLogin ? <button>Player</button>
+        <PlayerRegistration/> <PlayerLogin/>  <button>Team Rep</button>}</div>:<div>
 
-
-        <button>Player</button>
-        <PlayerRegistration/> <PlayerLogin/>
-
-        <button>Team Rep</button>
       
         <TeamLoginRegister />
 
+        <TeamContainer 
+
+       
+
+      </div>
       </div>
     );
   }
 }
 
 export default App;
+
+
+
+
+
+
+
+    <p><span className={this.state.playerLogin ? "current" : null} onClick={this.registration}>Register</span> • <span className={this.state.registering ? null : "current"} onClick={this.loggingIn}>Log in</span></p>
+
