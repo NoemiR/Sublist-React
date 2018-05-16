@@ -13,34 +13,53 @@ import TeamContainer from './TeamContainer'
 
 
 class App extends Component {
-    constructor(){
-      super();
-      this.state = {
-        playerLogin: '',
-        teamLogin: ''
-      }
+
+  constructor(){
+    super()
+    this.state = {
+      whichApp: "",
+      buttons: true
+
     }
+  }
 
 
-
+  handleClick = (e) => {
+    console.log(e.currentTarget.id)
+    this.setState({
+      buttons: false,
+      whichApp: e.currentTarget.id
+    })
+  }
 
   render() {
+    console.log(this.state, " this.state in App.js")
     return (
-      <div className="App">
-     <div>
-          {this.state.playerLogin ? <button>Player</button>
-        <PlayerRegistration/> <PlayerLogin/>  <button>Team Rep</button>}</div>:<div>
 
-      
-        <TeamLoginRegister />
+      this.state.buttons 
+      ?
+      <div>
 
-        <TeamContainer 
 
-       
+          <h1> Welcome </h1>
+
+
+
+            <button id="player" onClick={this.handleClick}>Player App</button>
+
+     
+
+            <button id="team" onClick={this.handleClick}>Team Rep App</button>
+    
 
       </div>
+
+      :
+      <div>
+      {this.state.whichApp === "team" ? <TeamContainer /> : <PlayerContainer />}
+
       </div>
-    );
+    )
   }
 }
 
@@ -52,5 +71,4 @@ export default App;
 
 
 
-    <p><span className={this.state.playerLogin ? "current" : null} onClick={this.registration}>Register</span> • <span className={this.state.registering ? null : "current"} onClick={this.loggingIn}>Log in</span></p>
-
+    
