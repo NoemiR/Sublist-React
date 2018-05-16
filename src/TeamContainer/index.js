@@ -4,6 +4,7 @@ import Players from '../Players'
 import Games from '../Games'
 import PlayerGames from '../PlayerGames'
 import PlayerRegistration from '../PlayerRegistration'
+import PlayerInfoModal from '../PlayerInfoModal'
 
 class TeamContainer extends Component {
 	constructor(){
@@ -44,7 +45,7 @@ class TeamContainer extends Component {
 
 	getAvailPlayers = async (e) => {
 
-		 const id = e.currentTarget.id
+		const id = e.currentTarget.id
 	
 		const availplayersJson = await fetch("http://localhost:9292/available/games/players/" + id, {
 			credentials: 'include'
@@ -53,7 +54,10 @@ class TeamContainer extends Component {
 		console.log(availPlayers, "<-- This is availPlayers")
 
 
-      	// this.setState({availPlayers: [...this.state.availPlayers, availPlayers.players]})
+      
+	}
+	openModal = () => {
+		
 	}
 
 
@@ -123,15 +127,18 @@ class TeamContainer extends Component {
 
 		return(
 			<div>
-				{this.state.loggedIn ?
-			<div>
-				<PlayerGames games={this.state.games} getGames={this.getGames} getAvailPlayers={this.getAvailPlayers} />	
-			</div>
-			: 	<TeamLoginRegister doLogin={this.doLogin} doRegister={this.doRegister} />
-			}
+				{
+					this.state.loggedIn 
+					?
+					<div>
+						<PlayerGames games={this.state.games} getGames={this.getGames} getAvailPlayers={this.getAvailPlayers} />	
+					</div>
+					: 	
+					<TeamLoginRegister doLogin={this.doLogin} doRegister={this.doRegister} />
+				}
 			</div>
 
-			)
+		)
 	}
 
 
