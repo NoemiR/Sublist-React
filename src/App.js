@@ -27,7 +27,6 @@ class App extends Component {
         <PlayerContainer/>
 
         <button>Team Rep</button>
-      
         <TeamContainer />
 
       </div>

@@ -1,6 +1,6 @@
 import React from 'react';
 
-const PlayerGames = ({games}) => {
+const PlayerGames = ({games, getAvailPlayers}) => {
 
 	const playergamesList = games.map((game, i) => {
 		// console.log(game, "<--- This is game in gamesList");
@@ -8,7 +8,7 @@ const PlayerGames = ({games}) => {
 				{game.game_date} PM<br/>
 				{game.team_id} <br/>
 				Team {game.team1_id} VS. Team {game.team2_id} <br/>
-				<button>View Players</button></li>
+				<button id={game.id} onClick={getAvailPlayers}>View Players</button></li>
 
 	})
 

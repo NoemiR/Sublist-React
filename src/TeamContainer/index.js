@@ -11,6 +11,7 @@ class TeamContainer extends Component {
 
 		this.state = {
 			players: [],
+			availPlayers: [],
 			games: [],
 			loginError: "",
       		loggedIn: false
@@ -41,12 +42,18 @@ class TeamContainer extends Component {
 		
 	}
 
-	getAvailPlayers = async (id) => {
-		const availplayersJson = await fetch("http://localhost:9292/available/games" + id + "/players", {
+	getAvailPlayers = async (e) => {
+
+		 const id = e.currentTarget.id
+	
+		const availplayersJson = await fetch("http://localhost:9292/available/games/players/" + id, {
 			credentials: 'include'
 		})
 		const availPlayers = await availplayersJson.json()
-			console.log(availPlayers)
+		console.log(availPlayers, "<-- This is availPlayers")
+
+
+      	// this.setState({availPlayers: [...this.state.availPlayers, availPlayers.players]})
 	}
 
 
@@ -118,7 +125,7 @@ class TeamContainer extends Component {
 			<div>
 				{this.state.loggedIn ?
 			<div>
-				<PlayerGames games={this.state.games} getGames={this.getGames} />	
+				<PlayerGames games={this.state.games} getGames={this.getGames} getAvailPlayers={this.getAvailPlayers} />	
 			</div>
 			: 	<TeamLoginRegister doLogin={this.doLogin} doRegister={this.doRegister} />
 			}
