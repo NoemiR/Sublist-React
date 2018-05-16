@@ -12,25 +12,53 @@ import TeamContainer from './TeamContainer'
 
 
 class App extends Component {
+  constructor(){
+    super()
+    this.state = {
+      whichApp: "",
+      buttons: true
+
+
+    }
+
+
+  }
+
+
+  handleClick = (e) => {
+    console.log(e.currentTarget.id)
+    this.setState({
+      buttons: false,
+      whichApp: e.currentTarget.id
+    })
+  }
+
   render() {
+    console.log(this.state, " this.state in App.js")
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to Sublist</h1>
-        </header>
-        <p className="App-intro">
-         Need a player for your game? Sign up to see available players.
-        </p>
+      this.state.buttons 
+      ?
+      <div>
 
-        <button>Player</button>
-        <PlayerContainer/>
 
-        <button>Team Rep</button>
-        <TeamContainer />
+          <h1> Welcome </h1>
+
+
+
+            <button id="player" onClick={this.handleClick}>Player App</button>
+
+     
+
+            <button id="team" onClick={this.handleClick}>Team Rep App</button>
+    
 
       </div>
-    );
+
+      :
+      <div>
+      {this.state.whichApp === "team" ? <TeamContainer /> : <PlayerContainer />}
+      </div>
+    )
   }
 }
 

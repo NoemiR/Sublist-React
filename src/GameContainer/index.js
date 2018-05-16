@@ -40,7 +40,7 @@ class GameContainer extends Component {
 
 			<div>
 				
-			<Games games={this.state.games} getGames={this.getGames} />	
+			<Games games={this.state.games} />	
 
 			</div>
 
