@@ -4,7 +4,7 @@ import Players from '../Players'
 import GameContainer from '../GameContainer'
 import './style.css'
 import PlayerLogin from '../PlayerLogin'
-
+import Games from '../Games'
 
 class PlayerContainer extends Component {
 	constructor(){
@@ -57,6 +57,17 @@ class PlayerContainer extends Component {
 
 	}
 
+	getAvailability = async (e) => {
+		const id = e.currentTarget.id
+
+		const availPlayersJson = await fetch("http://localhost:9292/available/games/players/" + id, {
+			redentials: 'include'
+		})
+
+		
+	}
+
+
 
 	doRegister = async (name, username, password, pos, email, phone) => {
 		const responsePromise = await fetch('http://localhost:9292/player/register', {
@@ -89,9 +100,6 @@ class PlayerContainer extends Component {
 					})
 				}
 			}
-
-
-
 
 
 	doLogin = async (username, password) => {
