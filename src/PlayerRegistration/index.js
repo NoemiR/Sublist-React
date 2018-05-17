@@ -20,9 +20,9 @@ class PlayerRegistration extends Component {
     	e.preventDefault();
     	console.log('haye')
     	if(this.state.register){
-    		this.props.doRegister(this.state.name, this.state.username, this.state.password, this.state.pos, this.state.email, this.state.phone)
+    		this.setState(this.state.name, this.state.username, this.state.password, this.state.pos, this.state.email, this.state.phone)
     	}else{
-    		this.props.doLogin(this.state.username, this.state.password)
+    		this.setState(this.state.username, this.state.password)
     	}
 
    	  	
@@ -30,9 +30,22 @@ class PlayerRegistration extends Component {
 
 	handleInput = (e) => {
 	  const whichField = e.currentTarget.name
-	  if(whichField === "username") this.setState({ username: e.currentTarget.value })
-	  else this.setState({password: e.currentTarget.value})
+		  if(whichField === "username") this.setState({ username: e.currentTarget.value })
+		  else this.setState({password: e.currentTarget.value})
 	}
+	addPlayer = async (name) => {
+		const playersJson = await fetch('http://localhost:9292/player',{
+			method: 'POST',
+			credentials: 'include',
+			body: JSON.stringify({name: name})
+		})
+		const newPlayer = await playersJson.json();
+      		console.log(newPlayer.player, ' this is names')
+			this.setState({players: [...this.state.players, newPlayer.player]});
+			return newPlayer;
+
+	}
+
 	registration = () => {
 	    this.setState({
 	     	register: true
@@ -51,10 +64,7 @@ class PlayerRegistration extends Component {
 
 
 
-			{this.props.logginError !== '' ? <p className="login-error">{this.props.loginError}</p> : null }
-        	<p><span className={this.state.register ? "current" : null} onClick={this.registration}>Register</span> •
-        	 <span className={this.state.register ? null : "current"} onClick={this.loggingIn}>Log in</span></p>
-
+			
 
 
 
@@ -62,11 +72,11 @@ class PlayerRegistration extends Component {
 
 					<input type="text" name="name" placeholder="name" onChange={this.addPlayer}/>
 
-					<input type="text" name="username" placeholder={this.state.register ? "desired username" : "username "} value={this.state.username} onChange={this.handleInput} /><br/>
+					<input type="text" name="username" placeholder={this.state.username} value={this.state.username} onChange={this.handleInput} /><br/>
 
 		          	<input type="password" name="password" placeholder="password" value={this.state.password} onChange={this.handleInput} /><br />
 
-		          	<input type="submit" onChange={this.handleInput} value={this.state.register ? "Register" : "Login"} />
+		          	
 
 		          	<input type="text" name="pos" onChange={this.handleInput} value={this.state.pos} placeholder="position"/>
 
@@ -74,7 +84,7 @@ class PlayerRegistration extends Component {
 
 		          	<input type="text" name="phone number" onChange={this.handleInput} value={this.state.phone} placeholder="phone number"/>
 
-					<input type='submit' value={this.state.register ? "Register" : "Login"} onChange={this.addPlayer}/>
+					<input type='submit' onChange={this.addPlayer}/>
 
 				</form>
 				
@@ -87,10 +97,15 @@ class PlayerRegistration extends Component {
 	
 }
 
-
-
-
-
-
-
 export default PlayerRegistration;
+
+
+
+
+
+
+
+
+// {this.props.logginError !== '' ? <p className="login-error">{this.props.loginError}</p> : null }
+//         	<p><span className={this.state.register ? "current" : null} onClick={this.registration}>Register</span> •
+//         	 <span className={this.state.register ? null : "current"} onClick={this.loggingIn}>Log in</span></p>

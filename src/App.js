@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap/dist/css/bootstrap-theme.css';
 import PlayerRegistration from './PlayerRegistration'
 import PlayerLogin from './PlayerLogin'
 import PlayerContainer from './PlayerContainer'
@@ -38,7 +40,7 @@ class App extends Component {
 
       this.state.buttons 
       ?
-      <div class="welcome">
+      <div className="welcome">
 
 
           <h1> Welcome </h1>
