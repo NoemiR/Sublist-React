@@ -1,3 +1,4 @@
+
 .games {
 	display: block;
 	text-align: center;
@@ -11,3 +12,7 @@
 	text-align: center;
 }
 
+
+body {
+	background: url(https://www.altemarkthalle.ch/wp-content/uploads/2017/09/xDRd0U2.jpg);
+}

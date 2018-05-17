@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap/dist/css/bootstrap-theme.css';
 import PlayerRegistration from './PlayerRegistration'
+import PlayerLogin from './PlayerLogin'
 import PlayerContainer from './PlayerContainer'
 import GameContainer from './GameContainer'
 import TeamLoginRegister from './TeamLoginRegister'
@@ -12,16 +15,14 @@ import TeamContainer from './TeamContainer'
 
 
 class App extends Component {
+
   constructor(){
     super()
     this.state = {
       whichApp: "",
       buttons: true
 
-
     }
-
-
   }
 
 
@@ -36,9 +37,10 @@ class App extends Component {
   render() {
     console.log(this.state, " this.state in App.js")
     return (
+
       this.state.buttons 
       ?
-      <div>
+      <div className="welcome">
 
 
           <h1> Welcome </h1>
@@ -58,9 +60,18 @@ class App extends Component {
       :
       <div>
       {this.state.whichApp === "team" ? <TeamContainer /> : <PlayerContainer />}
+
       </div>
     )
   }
 }
 
 export default App;
+
+
+
+
+
+
+
+    

@@ -14,7 +14,9 @@ class PlayerContainer extends Component {
 			modalOpen: false,
 			editPlayer: '',
 			loggedIn: false,
-			register: true
+			register: true,
+			whichApp: "",
+      		buttons: true
 		}
 	}
 	componentDidMount(){
@@ -36,11 +38,17 @@ class PlayerContainer extends Component {
 			return players;
 			console.log(players)
 	}
-	addPlayer = async (name) => {
+	addPlayer = async (name, username, password, pos, email, phone) => {
 		const playersJson = await fetch('http://localhost:9292/player',{
 			method: 'POST',
 			credentials: 'include',
-			body: JSON.stringify({name: name})
+			body: JSON.stringify({
+				name: name,
+				username: username,
+				password: password,
+				pos: pos,
+				email: email,
+				phone: phone})
 		})
 		const newPlayer = await playersJson.json();
       		console.log(newPlayer.player, ' this is names')
@@ -113,29 +121,47 @@ class PlayerContainer extends Component {
 			})
 		}
 	}
+
+  handleClick = (e) => {
+    console.log(e.currentTarget.id)
+    this.setState({
+      buttons: false,
+      whichApp: e.currentTarget.id
+    })
+  }
 	
 	render(){
 		return (
-			<div>
-				{
-					this.state.loggedIn 
-					?
-					<div>
-				
-						<GameContainer />
-					</div>
-					:
+	
 
-					<div> 
+		this.state.buttons 
 
-						{
-							this.state.register 
-							? 
-							<PlayerRegistration addPlayer={this.addPlayer} doRegister={this.doRegister} /> 
-							: 
-							<PlayerLogin doLogin={this.doLogin} />
-						}
-					</div>
+
+      	?
+      	<div className="welcome">
+
+
+          <h1> Players Main Page</h1>
+          <p>Would you like to join a team? </p>
+
+
+
+            <button id="login" onClick={this.handleClick}>Register</button>
+
+     
+
+            <button id="register" onClick={this.handleClick}>Login</button>
+    
+
+      </div>
+
+      :
+      <div>
+      {this.state.whichApp === "login" ? <PlayerRegistration addPlayer={this.addPlayer} doRegister={this.doRegister} /> : <PlayerLogin doLogin={this.doLogin} />
+
+
+
+ 
 				}
 			</div>
 		)

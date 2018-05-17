@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-
-class CreatePlayer extends Component {
+import GameContainer from '../GameContainer'
+class PlayerRegistration extends Component {
 	constructor(){
 		super();
 		this.state = {
@@ -9,12 +9,16 @@ class CreatePlayer extends Component {
 			password: '',
 			pos: '',
 			email: '',
-			phone: ''
+			phone: '',
+			loggedIn: false
 		}
 	}
 	handleSubmit = (e) => {
     	e.preventDefault();
     	this.props.doRegister(this.state.name, this.state.username, this.state.password, this.state.pos, this.state.email, this.state.phone)	
+    	this.setState({
+    		loggedIn: true
+    	})
   	}
 
 	handleInput = (e) => {
@@ -24,12 +28,19 @@ class CreatePlayer extends Component {
 	  this.setState(state)
 
 	}
+
 	
 
 	render(){
 		return(
 			<div>
-			"I am the player registration form"
+
+			{
+				this.state.loggedIn
+				?
+				<GameContainer />
+			
+			:
 
 				<form onSubmit={this.handleSubmit}>
 					<input type="text" name="name" placeholder="name" onChange={this.addPlayer}/>
@@ -40,9 +51,10 @@ class CreatePlayer extends Component {
 		          	<input type="text" name="phone number" placeholder="phone number"/>
 					<input type='Submit' value="register"/> <br />
 
+
 				
 				</form>
-				
+				}
 		
 				
 
@@ -64,6 +76,4 @@ class CreatePlayer extends Component {
 
 
 
-
-
-export default CreatePlayer;
+export default PlayerRegistration;
