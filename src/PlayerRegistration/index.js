@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import GameContainer from '../GameContainer'
+import './style.css'
 class PlayerRegistration extends Component {
 	constructor(){
 		super();
@@ -41,19 +42,20 @@ class PlayerRegistration extends Component {
 				<GameContainer />
 			
 			:
-
+				<div className="form">
 				<form onSubmit={this.handleSubmit}>
-					<input type="text" name="name" placeholder="name" onChange={this.addPlayer}/>
-					<input type="text" name="username" placeholder="desired username" value={this.state.username} onChange={this.handleInput}/>
-		          	<input type="password" name="password" placeholder="password" value={this.state.password} onChange={this.handleInput} />
-		          	<input type="text" name="pos" placeholder="position"/>
-		          	<input type="email" name="email" placeholder="email"/>
-		          	<input type="text" name="phone number" placeholder="phone number"/>
+					<input type="text" name="name" placeholder="name" onChange={this.addPlayer}/><br/>
+					<input type="text" name="username" placeholder="desired username" value={this.state.username} onChange={this.handleInput}/><br/>
+		          	<input type="password" name="password" placeholder="password" value={this.state.password} onChange={this.handleInput} /><br/>
+		          	<input type="text" name="pos" placeholder="position"/><br/>
+		          	<input type="email" name="email" placeholder="email"/><br/>
+		          	<input type="text" name="phone number" placeholder="phone number"/><br/>
 					<input type='Submit' value="register"/> <br />
 
 
 				
 				</form>
+				</div>
 				}
 		
 				

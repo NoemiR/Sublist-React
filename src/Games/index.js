@@ -15,8 +15,8 @@ const Games = ({games}) => {
 	return (
 
 		<div>
-			<h2 className="schedule">Game Schedule</h2>
-			<h4 className="schedule"> Check the games you are available for!</h4>
+			<h1 className="schedule">Game Schedule</h1>
+			<h4 className="schedule">Check the games you are available for!</h4>
 		 	{gamesList}
 		</div>
 

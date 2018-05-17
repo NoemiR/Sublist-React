@@ -1,3 +1,12 @@
+/*body {
+	background-image: url(https://www.altemarkthalle.ch/wp-content/uploads/2017/09/xDRd0U2.jpg);
+	text-align: center;
+	color: white;
+	background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}*/
 .current {
 	background-color: lightblue;
 	color: black;
@@ -8,9 +17,8 @@ span {
 	text-align: center;
 }	
 
-body{
-	background-color: lightgrey;
-}
+
+
 
 .form {
 	text-align: center;
