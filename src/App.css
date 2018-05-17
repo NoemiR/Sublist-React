@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  background: url(https://www.walldevil.com/wallpapers/a74/soccer-hot-wallpaper-football-football1.jpg);
 }
 
 .App-logo {
@@ -8,7 +9,6 @@
 }
 
 .App-header {
-  background: green;
   height: 150px;
   padding: 20px;
   color: white;

@@ -10,7 +10,7 @@ class Login extends Component {
 	    this.state = {
 	      username: '',
 	      password: '',
-	      loggeIn: false
+	      loggedIn: false
 	    }
 	}
 	handleSubmit = (e) => {
@@ -19,23 +19,48 @@ class Login extends Component {
     	
 	}
 
-	loggingIn = () => {
-    	this.setState({
-      		register: false
-    	})
-  	}
+	doLogin = async (username, password) => {
+		const responsePromise = await fetch('http://localhost:9292/player/login', {
+			method: 'POST',
+			credentials: 'include', //you must include this line
+			body: JSON.stringify({
+				username: username,
+				password: password
+			})
+		})
+		const parsedLoginResponse = await responsePromise.json();
+			if(parsedLoginResponse.success){
+			this.setState({
+				loggedIn: true
+			})
+			this.getPlayers()
+			.then((players) => {
+				this.setState({players: players.all_players})
+			})
+			.catch((err) => {
+				console.log(err)
+			})
+			}else{
+				this.setState({
+					loginError: parsedLoginResponse.message
+			})
+		}
+	}
+
   	render(){
 
 
 	    return (
 
-			<form onSubmit={this.handleSubmit}>
-				<input type="text" name="username" placeholder="username" value={this.state.username}/>
-				<input type="password" name="password" placeholder="password" value={this.state.password}/>
-				<button type="Submit">Login</button>
+	    	<div>
+	    	"login form"
+				<form onSubmit={this.handleSubmit} doLogin={this.doLogin}>
+					<input type="text" name="username" placeholder="username" value={this.state.username}/>
+					<input type="password" name="password" placeholder="password" value={this.state.password}/>
+					<button type="Submit">Login</button>
 
-			</form>						
-
+				</form>						
+			</div>
 	    )
     }
 }

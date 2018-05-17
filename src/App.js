@@ -38,7 +38,7 @@ class App extends Component {
 
       this.state.buttons 
       ?
-      <div>
+      <div class="welcome">
 
 
           <h1> Welcome </h1>

@@ -4,7 +4,6 @@ import Players from '../Players'
 import GameContainer from '../GameContainer'
 import './style.css'
 import PlayerLogin from '../PlayerLogin'
-//import EditModal from '../EditModal'
 
 
 class PlayerContainer extends Component {
@@ -49,38 +48,6 @@ class PlayerContainer extends Component {
 			return newPlayer;
 
 	}
-	editPlayer = async (props, id) => {
-		console.log(id)
-			const player = await fetch('http://localhost:9292/player/' + id, {
-				method: 'PUT',
-				body: JSON.stringify({props: props})
-		});
-		const response = await player.json();
-		const editedPlayerIndex = this.state.player.findIndex((player) => {
-			console.log(player, response)
-			return player.id === response.updated_player.id
-
-		})
-		const state =  this.state;
-			state.players[editedPlayerIndex]= response.updated_player;
-			state.modalOpen = true;
-			this.setState(state);
-		
-
-	}
-	openModal = (e) => {
-		// const id = e.currentTarget.previousSibling.id;
-		const playerId = parseInt(e.target.previousSibling.id)
-		const editedPlayer = this.state.players.find((player) => {
-			return player.id === playerId
-
-		})
-		this.setState({
-			modalOpen: true,
-			editedPlayer: editedPlayer
-		})
-
-	}
 
 
 	doRegister = async (name, username, password, pos, email, phone) => {
@@ -111,9 +78,9 @@ class PlayerContainer extends Component {
 				}else{
 					this.setState({
 						loginError: parsedLoginResponse.message
-				})
+					})
+				}
 			}
-		}
 
 
 
@@ -129,7 +96,7 @@ class PlayerContainer extends Component {
 			})
 		})
 		const parsedLoginResponse = await responsePromise.json();
-			if(parsedLoginResponse.success){
+		if(parsedLoginResponse.success){
 			this.setState({
 				loggedIn: true
 			})
@@ -168,7 +135,6 @@ class PlayerContainer extends Component {
 							: 
 							<PlayerLogin doLogin={this.doLogin} />
 						}
-						
 					</div>
 				}
 			</div>
@@ -183,9 +149,3 @@ class PlayerContainer extends Component {
 
 
 export default PlayerContainer;
-
-
-
-
-
-// <EditModal modalState={this.state.modalOpen} editedPlayer={this.state.editedIPlayer} editPlayer={this.editPlayer}/>
