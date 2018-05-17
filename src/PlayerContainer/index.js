@@ -141,8 +141,8 @@ class PlayerContainer extends Component {
       	<div className="welcome">
 
 
-          <h1> Players Main Page</h1>
-          <p>Would you like to join a team? </p>
+          <h1 className="content"> Players Main Page</h1>
+          <p className="content">Would you like to join a team? </p>
 
 
 
