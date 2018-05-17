@@ -121,7 +121,7 @@ class PlayerContainer extends Component {
 					this.state.loggedIn 
 					?
 					<div>
-						<Players players={this.state.players} getPlayers={this.getPlayers} />
+				
 						<GameContainer />
 					</div>
 					:
