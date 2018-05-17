@@ -4,11 +4,15 @@
 }
 
 span {
-	cursor: pointer
+	cursor: pointer;
+	text-align: center;
+}	
+
+body{
+	background-color: lightgrey;
 }
-/*
-.login-error {
-	border: 2px solid red;
-	padding: 20px;
-	background-color: orange;
-}*/
+
+.form {
+	text-align: center;
+}
+

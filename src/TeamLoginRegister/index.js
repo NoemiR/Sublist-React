@@ -42,7 +42,7 @@ class TeamLoginRegister extends Component {
 
 		return (
 
-			<div>
+			<div className="form">
 				
 				<p><span className={ this.state.registering ? "current" : null }onClick={this.registration}>Register</span> • <span className={this.state.registering ? null : "current" }onClick={this.loggingIn}>Login</span></p>
 				<form onSubmit={this.handleSubmit} > 

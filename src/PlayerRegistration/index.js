@@ -29,7 +29,7 @@ class CreatePlayer extends Component {
 	render(){
 		return(
 			<div>
-			"i am the player registration form"
+			"I am the player registration form"
 
 				<form onSubmit={this.handleSubmit}>
 					<input type="text" name="name" placeholder="name" onChange={this.addPlayer}/>
@@ -38,7 +38,9 @@ class CreatePlayer extends Component {
 		          	<input type="text" name="pos" placeholder="position"/>
 		          	<input type="email" name="email" placeholder="email"/>
 		          	<input type="text" name="phone number" placeholder="phone number"/>
-					<input type='Submit' value="register"/>
+					<input type='Submit' value="register"/> <br />
+
+				
 				</form>
 				
 		

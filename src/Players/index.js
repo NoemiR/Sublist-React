@@ -8,8 +8,6 @@ const Players = ({players}) => {
 		return (
 			<li key={player.id}>{player.name}</li>
 
-
-
 		)
 	})
 	return (
