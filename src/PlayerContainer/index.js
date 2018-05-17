@@ -15,7 +15,7 @@ class PlayerContainer extends Component {
 			editPlayer: '',
 			loggedIn: false,
 			register: true,
-			 whichApp: "",
+			whichApp: "",
       		buttons: true
 		}
 	}
@@ -136,11 +136,14 @@ class PlayerContainer extends Component {
 				
 
 					this.state.buttons 
+
+
       ?
       <div className="welcome">
 
 
           <h1> Players Main Page</h1>
+          <p>Would you like to join a team? </p>
 
 
 
@@ -155,7 +158,9 @@ class PlayerContainer extends Component {
 
       :
       <div>
-      {this.state.whichApp === "login" ? <PlayerRegistration /> : <PlayerLogin />}
+      {this.state.whichApp === "login" ? <PlayerRegistration addPlayer={this.addPlayer} doRegister={this.doRegister} /> : <PlayerLogin doLogin={this.doLogin} />
+
+
 
      
 				}

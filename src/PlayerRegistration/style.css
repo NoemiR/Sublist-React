@@ -1,3 +1,18 @@
 body {
 	background: url(https://www.altemarkthalle.ch/wp-content/uploads/2017/09/xDRd0U2.jpg);
+	text-align: center;
+	color: pink;
+
+}
+
+button{
+	background-color: black;
+	margin: 25px;
+}
+.form {
+	display: inline-block;
+	margin: 10px;
+}
+input{
+	display: inline-block;
 }
