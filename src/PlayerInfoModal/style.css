@@ -1,9 +1,22 @@
 .modal {
-	
+	height: 350px;
+	width: 350px;
 	position: fixed;
 	display: block;
 	top: 35%;
 	left: 75%;
 	background-color: lightgrey;
 	transform: translate(-50%, -50%);
+	justify-content: space-between;
+}
+
+ul {
+	display: flex;
+	flex-direction: column;
+
+
+}
+
+.players {
+	margin-top: 15px;
 }

@@ -55,7 +55,7 @@ const PlayerInfoModal = (props) => {
 		if(props.availPlayers != undefined){
 			 playerList = props.availPlayers.players.map((availPlayer, i) => {
 				console.log(playerList, 'this is player list in modal first part')
-				return <li key={availPlayer.id}> Name: {availPlayer.name} <br />
+				return <li className="players" key={availPlayer.id}> Name: {availPlayer.name} <br />
 				Phone: {availPlayer.phone} <br />
 				Email: {availPlayer.email} <br />
 				Position: {availPlayer.pos}
