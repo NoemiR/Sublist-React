@@ -3,8 +3,6 @@ import './style.css'
 
 const Games = ({games, players, available}) => {
 
-	
-
 
 	const gamesList = games.map((game, i) => {
 		// console.log(game, "<--- This is game in gamesList");
@@ -27,12 +25,11 @@ const Games = ({games, players, available}) => {
 
 		<div>
 
-			<form>
-				<h2 className="schedule">Game Schedule</h2>
-				<h4 className="schedule"> Check the games you are available for!</h4>
-			 	{gamesList}
-			 	<input type="submit" />
-			</form>
+
+			<h1 className="schedule">Game Schedule</h1>
+			<h4 className="schedule">Check the games you are available for!</h4>
+		 	{gamesList}
+
 		</div>
 
 

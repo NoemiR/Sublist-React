@@ -1,6 +1,20 @@
+/*body {
+  background-image: url(https://www.altemarkthalle.ch/wp-content/uploads/2017/09/xDRd0U2.jpg);
+  text-align: center;
+  color: white;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+}*/
+
+
+
+
 h1{
   text-align: center;
-  background: url(https://www.walldevil.com/wallpapers/a74/soccer-hot-wallpaper-football-football1.jpg);
+  color: white;
+  
 }
 
 
@@ -10,6 +24,9 @@ h2{
 
 
 .button {
-	margin-left: 30%;
+	margin: 15px;
 }
+.card {
+  border: 2px solid black;
 
+}

@@ -43,12 +43,12 @@ class App extends Component {
       <div className="welcome">
 
 
-          <h1> Welcome </h1>
+            <h1> Play Hard, Get Dirty, Have Fun! </h1>
 
-            <h2>Please continue as a Player or a Team Representative</h2>
+            <h5>Please register as a Player or a Team Representative to join our league</h5>
 
 
-            <button className="button"id="player" onClick={this.handleClick}>Player App</button>
+            <button className="button" id="player" onClick={this.handleClick}>Player App</button>
 
             
 

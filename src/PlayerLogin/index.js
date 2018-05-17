@@ -37,6 +37,7 @@ class Login extends Component {
 
 	    return (
 	    	<div>
+	    	<h1>Welcome back! </h1>
 	    		{
 					this.state.loggedIn 
 					?

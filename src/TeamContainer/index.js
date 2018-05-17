@@ -5,6 +5,7 @@ import Games from '../Games'
 import PlayerGames from '../PlayerGames'
 import PlayerRegistration from '../PlayerRegistration'
 import PlayerInfoModal from '../PlayerInfoModal'
+
 class TeamContainer extends Component {
     constructor(){
         super()
