@@ -23,11 +23,6 @@ class App extends Component {
     }
   }
 
-  getPlayerId = () => {
-    this.setState({
-      
-    })
-  }
 
 
   handleClick = (e) => {

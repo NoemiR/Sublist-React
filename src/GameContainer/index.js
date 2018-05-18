@@ -8,6 +8,7 @@ class GameContainer extends Component {
 		super()
 			this.state = {
 				games: [],
+				playerId: "",
 				players:[],
 				available: false
 			}
@@ -36,6 +37,15 @@ class GameContainer extends Component {
 		
 	}
 
+	// getPlayerId = () => {
+
+	// 	this.props.doRegister(this.state.playerId)
+	// 	this.setState({playerId: player_id})
+
+	// 	console.log(this.state, "this is state in get playerId function")
+
+	// }
+
 	render() {
 
 		// console.log(this.state, "<--- this.state in render in GameContainer");
@@ -44,7 +54,6 @@ class GameContainer extends Component {
 			<div>
 				
 			<Games games={this.state.games} />	
-
 
 
 			</div>

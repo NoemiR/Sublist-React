@@ -10,13 +10,13 @@ class PlayerContainer extends Component {
 	constructor(){
 		super();
 		this.state = {
-			playerId: "",
+			playerId: '',
 			players: [],
 			modalOpen: false,
 			editPlayer: '',
 			loggedIn: false,
 			register: true,
-			whichApp: "",
+			whichApp: '',
       		buttons: true
 		}
 	}

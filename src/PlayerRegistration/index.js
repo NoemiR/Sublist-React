@@ -6,6 +6,7 @@ class PlayerRegistration extends Component {
 	constructor(){
 		super();
 		this.state = {
+			playerId: '',
 			name: '',
 			username: '',
 			password: '',
@@ -13,16 +14,24 @@ class PlayerRegistration extends Component {
 			email: '',
 			phone: '',
 			loggedIn: false,
-			available: true,
+	
 
 		}
 	}
 	handleSubmit = (e) => {
     	e.preventDefault();
-    	this.props.doRegister(this.state.name, this.state.username, this.state.password, this.state.pos, this.state.email, this.state.phone)	
+    	this.props.doRegister(this.state.playerId, this.state.name, this.state.username, this.state.password, this.state.pos, this.state.email, this.state.phone)	
     	this.setState({
-    		loggedIn: true
+    		loggedIn: true,
+
+  
     	})
+  	}
+
+  	getPlayerId = (props) => {
+  		console.log(props, "this is props")
+  		this.props.doRegister()
+  		console.log("this is get playerId function")
   	}
 
 	handleInput = (e) => {
@@ -36,13 +45,15 @@ class PlayerRegistration extends Component {
 	
 
 	render(){
+
+		console.log(this.state, "<-- this is state in PlayerRegistration");
 		return(
 			<div>
 
 			{
 				this.state.loggedIn
 				?
-				<GameContainer />
+				<GameContainer getPlayerId={this.getPlayerId}/>
 			
 			:
 				<div className="form">
