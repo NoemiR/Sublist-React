@@ -11,18 +11,22 @@ import TeamLoginRegister from './TeamLoginRegister'
 import TeamContainer from './TeamContainer'
 
 
-
-
-
 class App extends Component {
 
   constructor(){
     super()
     this.state = {
       whichApp: "",
-      buttons: true
+      buttons: true,
+      playerId: ""
 
     }
+  }
+
+  getPlayerId = () => {
+    this.setState({
+      
+    })
   }
 
 
@@ -33,6 +37,10 @@ class App extends Component {
       whichApp: e.currentTarget.id
     })
   }
+
+
+
+
 
   render() {
     console.log(this.state, " this.state in App.js")

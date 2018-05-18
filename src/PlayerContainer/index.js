@@ -10,6 +10,7 @@ class PlayerContainer extends Component {
 	constructor(){
 		super();
 		this.state = {
+			playerId: "",
 			players: [],
 			modalOpen: false,
 			editPlayer: '',
@@ -30,15 +31,17 @@ class PlayerContainer extends Component {
 		})
 	}
 	getPlayers = async () => {
+
 		const playersJson = await fetch('http://localhost:9292/player',{
 			credentials: 'include'
 		})
 		const players = await playersJson.json();
-			console.log(players)
+		console.log(players, '<-- this is players in getPlayers()')
 			return players;
-			console.log(players)
+	
 	}
 	addPlayer = async (name, username, password, pos, email, phone) => {
+		console.log('this is in add player')
 		const playersJson = await fetch('http://localhost:9292/player',{
 			method: 'POST',
 			credentials: 'include',
@@ -48,28 +51,24 @@ class PlayerContainer extends Component {
 				password: password,
 				pos: pos,
 				email: email,
-				phone: phone})
-		})
+				phone: phone
+			})
+
+	})
+		console.log(playersJson, "<-- this is players json")
+
 		const newPlayer = await playersJson.json();
-      		console.log(newPlayer.player, ' this is names')
+		console.log("this is after new player")
 			this.setState({players: [...this.state.players, newPlayer.player]});
+	
 			return newPlayer;
 
-	}
-
-	getAvailability = async (e) => {
-		const id = e.currentTarget.id
-
-		const availPlayersJson = await fetch("http://localhost:9292/available/games/players/" + id, {
-			redentials: 'include'
-		})
-
-		
 	}
 
 
 
 	doRegister = async (name, username, password, pos, email, phone) => {
+	
 		const responsePromise = await fetch('http://localhost:9292/player/register', {
 			method: 'POST',
 			credentials: 'include', 
@@ -81,25 +80,20 @@ class PlayerContainer extends Component {
 				email: email,
 				phone: phone
 			})
+
 		})
-		const parsedLoginResponse = await responsePromise.json();
-			if(parsedLoginResponse.success){
-				this.setState({
-					loggedIn: true
-				})
-				this.getPlayers()
-				.then((players) => {
-					this.setState({players: players.all_players})
-				})
-				.catch((err) => {
-					console.log(err)
-				})
-				}else{
-					this.setState({
-						loginError: parsedLoginResponse.message
-					})
-				}
-			}
+
+
+		const parsedRegisterResponse = await responsePromise.json();
+		console.log(parsedRegisterResponse, "<----this is parsedRegisterResponse")
+		console.log(parsedRegisterResponse.player_id, "<--- This is playerid")
+		const player_id = parsedRegisterResponse.player_id
+			this.setState({playerId: player_id})
+
+			console.log(this.state, "this is state in do register after player id is assigned")
+
+
+	}
 
 
 	doLogin = async (username, password) => {

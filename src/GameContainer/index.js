@@ -32,39 +32,9 @@ class GameContainer extends Component {
         	credentials: 'include'
      	}); 
 		  const games = await gamesJson.json()
-		  console.log(games, "<-- This is games in getGames Function");
 	      return games
 		
 	}
-
-	getPlayers = async () => {
-		const playersJson = await fetch('http://localhost:9292/player',{
-			credentials: 'include'
-		})
-		const players = await playersJson.json();
-			console.log(players)
-			return players;
-			console.log(players)
-	}
-	addPlayer = async (name, username, password, pos, email, phone) => {
-		const playersJson = await fetch('http://localhost:9292/player', {
-			method: 'POST',
-			credentials: 'include',
-			body: JSON.stringify({
-				name: name,
-				username: username,
-				password: password,
-				pos: pos,
-				email: email,
-				phone: phone})
-		})
-		const newPlayer = await playersJson.json();
-      		console.log(newPlayer.player, ' this is names')
-			this.setState({players: [...this.state.players, newPlayer.player]});
-			return newPlayer;
-
-	}
-
 
 	render() {
 
@@ -73,7 +43,7 @@ class GameContainer extends Component {
 
 			<div>
 				
-			<Games games={this.state.games} players={this.state.players}/>	
+			<Games games={this.state.games} />	
 
 
 

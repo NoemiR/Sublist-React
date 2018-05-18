@@ -7,12 +7,11 @@ const Games = ({games, players, available}) => {
 	const gamesList = games.map((game, i) => {
 		// console.log(game, "<--- This is game in gamesList");
 	
-		const playerList = players.map((player, i) => {
-			console.log(player.id, "<--- this is player.id")
-			return <li key={player.id}> </li>
+		// const playerList = players.map((player, i) => {
+		// 	console.log(player.id, "<--- this is player.id")
+		// 	return <li key={player.id}> </li>
 
-		})
-
+		// })
 
 		return <li className="games" key={game.id}>{game.game_time} PM<br/>
 				{game.game_date} <br />
@@ -25,10 +24,12 @@ const Games = ({games, players, available}) => {
 
 		<div>
 
+		<form>
 
 			<h1 className="schedule">Game Schedule</h1>
 			<h4 className="schedule">Check the games you are available for!</h4>
 		 	{gamesList}
+		 </form>	
 
 		</div>
 
