@@ -131,11 +131,18 @@ class PlayerContainer extends Component {
   }
 	
 	render(){
-		return (
 
-			
+		if(this.state.loggedIn) {
 
-			
+			return <GameContainer />
+		}
+
+		else  {
+
+
+			return (
+
+		
 				this.state.buttons 
 		      	?
 		      	<div className="welcome">
@@ -149,10 +156,8 @@ class PlayerContainer extends Component {
 		      		{ this.state.loginOrRegister === "register" ? <PlayerRegistration playerId={this.state.playerId} addPlayer={this.addPlayer} doRegister={this.doRegister} /> : <PlayerLogin doLogin={this.doLogin} /> }
 				</div>
 
-
-
-
-		)
+			)
+		}
 	}
 }
 
