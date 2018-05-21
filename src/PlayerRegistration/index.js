@@ -12,21 +12,14 @@ class PlayerRegistration extends Component {
 			password: '',
 			pos: '',
 			email: '',
-			phone: '',
-			loggedIn: false,
-	
+			phone: ''
 
 		}
 	}
 	handleSubmit = (e) => {
     	e.preventDefault();
-    	this.props.doRegister(this.state.playerId, this.state.name, this.state.username, this.state.password, this.state.pos, this.state.email, this.state.phone)	
-    	this.setState({
-    		loggedIn: true,
-
-
-  
-    	})
+    	this.props.doRegister(this.state.name, this.state.username, this.state.password, this.state.pos, this.state.email, this.state.phone)	
+    
   	}
 
 
@@ -45,14 +38,8 @@ class PlayerRegistration extends Component {
 		// console.log(this.state, "<-- this is state in PlayerRegistration");
 		console.log(this.props, "<-- This is props in PlayerRegistration")
 		return(
-			<div>
+		
 
-				{
-					this.state.loggedIn
-					?
-					<GameContainer PlayerId={this.props.playerId}/>
-
-					:
 					<div className="form">
 						<form onSubmit={this.handleSubmit}>
 							<input type="text" name="name" placeholder="name" onChange={this.addPlayer}/><br/>
@@ -62,19 +49,12 @@ class PlayerRegistration extends Component {
 				          	<input type="email" name="email" placeholder="email"/><br/>
 				          	<input type="text" name="phone number" placeholder="phone number"/><br/>
 
-							<input type='Submit' value="register"/> <br />
-
+							<button>Register</button>
 
 						
 						</form>
 					</div>
-				}
-		
-				
-
-			</div>
-
-
+			
 
 		)
 	}

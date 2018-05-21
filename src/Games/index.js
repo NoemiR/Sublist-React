@@ -2,22 +2,10 @@ import React from 'react';
 import GameContainer from '../GameContainer'
 import './style.css'
 
-const Games = ({games, playerId, available}) => {
-	console.log(playerId, "<-----this is player id in GAMES")
-	console.log(this.playerId, "<---- this is this.playerId in Games")
-	
-	// handleCheck = (e) => {
-	// 	console.log(e.key)
-	// }
+const Games = (props) => {
 
-	const gamesList = games.map((game, i) => {
-		// console.log(game, "<--- This is game in gamesList");
-	
-		// const playerList = players.map((player, i) => {
-		// 	console.log(player.id, "<--- this is player.id")
-		// 	return <li key={player.id}> </li>
+	const gamesList = props.games.map((game, i) => {
 
-		// })
 
 		return( 
 			<li className="games" key={game.id}>{game.game_time} PM<br/>

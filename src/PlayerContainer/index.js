@@ -54,7 +54,7 @@ class PlayerContainer extends Component {
 				phone: phone
 			})
 
-	})
+		})
 		console.log(playersJson, "<-- this is players json")
 
 		const newPlayer = await playersJson.json();
@@ -67,7 +67,7 @@ class PlayerContainer extends Component {
 
 
 	doRegister = async (name, username, password, pos, email, phone) => {
-	
+		
 		const responsePromise = await fetch('http://localhost:9292/player/register', {
 			method: 'POST',
 			credentials: 'include', 
@@ -83,10 +83,13 @@ class PlayerContainer extends Component {
 		})
 
 		const parsedRegisterResponse = await responsePromise.json();
-		console.log(parsedRegisterResponse, "<----this is parsedRegisterResponse")
+		console.log(parsedRegisterResponse, "<----this is parsedRegisterResponse  in doRegister")
 		console.log(parsedRegisterResponse.player_id, "<--- This is playerid")
 		const player_id = parsedRegisterResponse.player_id
-		this.setState({playerId: player_id})
+		this.setState({
+			playerId: player_id,
+			loggedIn: true
+		})
 
 		console.log(this.state, "this is state in do register after player id is assigned")
 
@@ -134,7 +137,7 @@ class PlayerContainer extends Component {
 
 		if(this.state.loggedIn) {
 
-			return <GameContainer />
+			return <GameContainer playerId={this.state.playerId}/>
 		}
 
 		else  {
