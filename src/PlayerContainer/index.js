@@ -66,7 +66,6 @@ class PlayerContainer extends Component {
 	}
 
 
-
 	doRegister = async (name, username, password, pos, email, phone) => {
 	
 		const responsePromise = await fetch('http://localhost:9292/player/register', {
@@ -82,7 +81,6 @@ class PlayerContainer extends Component {
 			})
 
 		})
-
 
 		const parsedRegisterResponse = await responsePromise.json();
 		console.log(parsedRegisterResponse, "<----this is parsedRegisterResponse")
@@ -163,7 +161,7 @@ class PlayerContainer extends Component {
 
       :
       <div>
-      {this.state.whichApp === "login" ? <PlayerRegistration addPlayer={this.addPlayer} doRegister={this.doRegister} /> : <PlayerLogin doLogin={this.doLogin} />
+      {this.state.whichApp === "login" ? <PlayerRegistration playerId={this.state.playerId} addPlayer={this.addPlayer} doRegister={this.doRegister} /> : <PlayerLogin doLogin={this.doLogin} />
 
 
 

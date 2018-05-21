@@ -49,11 +49,13 @@ class GameContainer extends Component {
 	render() {
 
 		// console.log(this.state, "<--- this.state in render in GameContainer");
+		console.log(this.props, "<--- This is props in GameContainer")
 		return (
 
 			<div>
 				
-			<Games games={this.state.games} />	
+			<Games playerId={this.props} games={this.state.games} />	
+
 
 
 			</div>

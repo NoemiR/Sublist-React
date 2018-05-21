@@ -33,12 +33,37 @@ class App extends Component {
     })
   }
 
+  getPlayerId = async (name, username, password, pos, email, phone) => {
+    console.log("this is inside getPlayerId")
+      const responsePromise = await fetch('http://localhost:9292/player/register', {
+      method: 'POST',
+      credentials: 'include', 
+      body: JSON.stringify({
+        name: name,
+        username: username,
+        password: password,
+        pos: pos,
+        email: email,
+        phone: phone
+      })
+
+    })
+
+    const parsedRegisterResponse = await responsePromise.json();
+    console.log(parsedRegisterResponse, "<----this is parsedRegisterResponse")
+    console.log(parsedRegisterResponse.player_id, "<--- This is playerid")
+    const player_id = parsedRegisterResponse.player_id
+      this.setState({playerId: player_id})
+
+      console.log(this.state, "<-----this is state in APP.JS")
+      
+  }
 
 
 
 
   render() {
-    console.log(this.state, " this.state in App.js")
+    // console.log(this.state, " <----this.state in App.js")
     return (
 
       this.state.buttons 

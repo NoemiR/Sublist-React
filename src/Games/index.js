@@ -1,8 +1,10 @@
 import React from 'react';
+import GameContainer from '../GameContainer'
 import './style.css'
 
-const Games = ({games, players, available}) => {
-
+const Games = ({games, playerId, available}) => {
+	console.log(playerId, "<-----this is player id in GAMES")
+	console.log(this.playerId, "<---- this is this.playerId in Games")
 
 	const gamesList = games.map((game, i) => {
 		// console.log(game, "<--- This is game in gamesList");
@@ -16,9 +18,11 @@ const Games = ({games, players, available}) => {
 		return <li className="games" key={game.id}>{game.game_time} PM<br/>
 				{game.game_date} <br />
 				Team {game.team1_id} VS. Team {game.team2_id} <br/>
-				<input type="checkbox" /></li>
+				<input key={playerId.id}id="checkBox" type="checkbox" value="false"/></li>
 			
 		})
+
+	
 
 	return (
 
@@ -29,6 +33,7 @@ const Games = ({games, players, available}) => {
 			<h1 className="schedule">Game Schedule</h1>
 			<h4 className="schedule">Check the games you are available for!</h4>
 		 	{gamesList}
+		 	<button>Submit</button>
 		 </form>	
 
 		</div>

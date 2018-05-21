@@ -1,12 +1,12 @@
 import React, {Component} from 'react';
 import GameContainer from '../GameContainer'
+import PlayerContainer from '../PlayerContainer'
 import './style.css'
 
 class PlayerRegistration extends Component {
 	constructor(){
 		super();
 		this.state = {
-			playerId: '',
 			name: '',
 			username: '',
 			password: '',
@@ -24,15 +24,11 @@ class PlayerRegistration extends Component {
     	this.setState({
     		loggedIn: true,
 
+
   
     	})
   	}
 
-  	getPlayerId = (props) => {
-  		console.log(props, "this is props")
-  		this.props.doRegister()
-  		console.log("this is get playerId function")
-  	}
 
 	handleInput = (e) => {
 
@@ -46,15 +42,16 @@ class PlayerRegistration extends Component {
 
 	render(){
 
-		console.log(this.state, "<-- this is state in PlayerRegistration");
+		// console.log(this.state, "<-- this is state in PlayerRegistration");
+		console.log(this.props, "<-- This is props in PlayerRegistration")
 		return(
 			<div>
 
 			{
 				this.state.loggedIn
 				?
-				<GameContainer getPlayerId={this.getPlayerId}/>
-			
+				<GameContainer PlayerId={this.props.playerId}/>
+
 			:
 				<div className="form">
 				<form onSubmit={this.handleSubmit}>
