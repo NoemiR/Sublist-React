@@ -16,7 +16,7 @@ class PlayerContainer extends Component {
 			editPlayer: '',
 			loggedIn: false,
 			register: true,
-			whichApp: '',
+			loginOrRegister: '',
       		buttons: true
 		}
 	}
@@ -86,9 +86,9 @@ class PlayerContainer extends Component {
 		console.log(parsedRegisterResponse, "<----this is parsedRegisterResponse")
 		console.log(parsedRegisterResponse.player_id, "<--- This is playerid")
 		const player_id = parsedRegisterResponse.player_id
-			this.setState({playerId: player_id})
+		this.setState({playerId: player_id})
 
-			console.log(this.state, "this is state in do register after player id is assigned")
+		console.log(this.state, "this is state in do register after player id is assigned")
 
 
 	}
@@ -126,48 +126,32 @@ class PlayerContainer extends Component {
     console.log(e.currentTarget.id)
     this.setState({
       buttons: false,
-      whichApp: e.currentTarget.id
+      loginOrRegister: e.currentTarget.id
     })
   }
 	
 	render(){
 		return (
-	
 
-		this.state.buttons 
+			
 
-
-      	?
-      	<div className="welcome">
-
-
-          <h1 className="content"> Life's a soccer ball. Can you kick it?</h1>
-
-
-
-          
-          <p className="content">Would you like to join a team, but can't commit fulltime? </p>
-
-
-
-            <button id="login" onClick={this.handleClick}>Register</button>
-
-     
-
-            <button id="register" onClick={this.handleClick}>Login</button>
-    
-
-      </div>
-
-      :
-      <div>
-      {this.state.whichApp === "login" ? <PlayerRegistration playerId={this.state.playerId} addPlayer={this.addPlayer} doRegister={this.doRegister} /> : <PlayerLogin doLogin={this.doLogin} />
+			
+				this.state.buttons 
+		      	?
+		      	<div className="welcome">
+		          <h1 className="content"> Life's a soccer ball. Can you kick it?</h1>
+		          <p className="content">Would you like to join a team, but can't commit fulltime? </p>
+		            <button id="register" onClick={this.handleClick}>Register</button>   
+		            <button id="login" onClick={this.handleClick}>Login</button>
+			    </div>
+		   	   	:
+		      	<div>
+		      		{ this.state.loginOrRegister === "register" ? <PlayerRegistration playerId={this.state.playerId} addPlayer={this.addPlayer} doRegister={this.doRegister} /> : <PlayerLogin doLogin={this.doLogin} /> }
+				</div>
 
 
 
- 
-				}
-			</div>
+
 		)
 	}
 }

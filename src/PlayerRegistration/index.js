@@ -47,27 +47,27 @@ class PlayerRegistration extends Component {
 		return(
 			<div>
 
-			{
-				this.state.loggedIn
-				?
-				<GameContainer PlayerId={this.props.playerId}/>
+				{
+					this.state.loggedIn
+					?
+					<GameContainer PlayerId={this.props.playerId}/>
 
-			:
-				<div className="form">
-				<form onSubmit={this.handleSubmit}>
-					<input type="text" name="name" placeholder="name" onChange={this.addPlayer}/><br/>
-					<input type="text" name="username" placeholder="desired username" value={this.state.username} onChange={this.handleInput}/><br/>
-		          	<input type="password" name="password" placeholder="password" value={this.state.password} onChange={this.handleInput} /><br/>
-		          	<input type="text" name="pos" placeholder="position"/><br/>
-		          	<input type="email" name="email" placeholder="email"/><br/>
-		          	<input type="text" name="phone number" placeholder="phone number"/><br/>
+					:
+					<div className="form">
+						<form onSubmit={this.handleSubmit}>
+							<input type="text" name="name" placeholder="name" onChange={this.addPlayer}/><br/>
+							<input type="text" name="username" placeholder="desired username" value={this.state.username} onChange={this.handleInput}/><br/>
+				          	<input type="password" name="password" placeholder="password" value={this.state.password} onChange={this.handleInput} /><br/>
+				          	<input type="text" name="pos" placeholder="position"/><br/>
+				          	<input type="email" name="email" placeholder="email"/><br/>
+				          	<input type="text" name="phone number" placeholder="phone number"/><br/>
 
-					<input type='Submit' value="register"/> <br />
+							<input type='Submit' value="register"/> <br />
 
 
-				
-				</form>
-				</div>
+						
+						</form>
+					</div>
 				}
 		
 				

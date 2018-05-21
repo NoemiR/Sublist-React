@@ -4,65 +4,62 @@ import PlayerGames from '../PlayerGames'
 import PlayerContainer from '../PlayerContainer'
 
 class GameContainer extends Component {
-	constructor() {
-		super()
-			this.state = {
-				games: [],
-				playerId: "",
-				players:[],
-				available: false
-			}
+	// constructor() {
+	// 	super()
 
-	} 
+	// 	this.state = {
+	// 		games: [],
+	// 		playerId: "",
+	// 		players:[],
+	// 		available: false
+	// 	}
 
-	componentDidMount(){
-		this.getGames()
+	// } 
+
+	// componentDidMount(){
+	// 	this.getGames()
 		
-		.then((games) => {
-			this.setState({games: games.all_games})
-		})
-		.catch((err) => {
-			console.log(err)
-		})
-	}
-	getGames = async () => {
+	// 	.then((games) => {
+	// 		this.setState({games: games.all_games})
+	// 	})
+	// 	.catch((err) => {
+	// 		console.log(err)
+	// 	})
+	// }
+	// getGames = async () => {
 
-		// console.log("This is before the fetch api call")
+	// 	// console.log("This is before the fetch api call")
 
-		const gamesJson = await fetch("http://localhost:9292/games", {
-        	credentials: 'include'
-     	}); 
-		  const games = await gamesJson.json()
-	      return games
+	// 	const gamesJson = await fetch("http://localhost:9292/games", {
+ //        	credentials: 'include'
+ //     	}); 
+	// 	  const games = await gamesJson.json()
+	//       return games
 		
-	}
-
-	// getPlayerId = () => {
-
-	// 	this.props.doRegister(this.state.playerId)
-	// 	this.setState({playerId: player_id})
-
-	// 	console.log(this.state, "this is state in get playerId function")
-
 	// }
 
-	render() {
+													
 
-		// console.log(this.state, "<--- this.state in render in GameContainer");
-		console.log(this.props, "<--- This is props in GameContainer")
-		return (
+	// render() {
 
-			<div>
+	// 	// console.log(this.state, "<--- this.state in render in GameContainer");
+	// 	console.log(this.props, "<--- This is props in GameContainer")
+	// 	return (
+
+	// 		<div>
 				
-			<Games playerId={this.props} games={this.state.games} />	
+	// 		<Games playerId={this.props} games={this.state.games} />	
 
 
 
-			</div>
+	// 		</div>
 
-		)
+	// 	)
 	
 
+	// }
+	render() {
+		return(<h1>This is game Container</h1>)
 	}
 }
 

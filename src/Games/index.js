@@ -5,6 +5,10 @@ import './style.css'
 const Games = ({games, playerId, available}) => {
 	console.log(playerId, "<-----this is player id in GAMES")
 	console.log(this.playerId, "<---- this is this.playerId in Games")
+	
+	// handleCheck = (e) => {
+	// 	console.log(e.key)
+	// }
 
 	const gamesList = games.map((game, i) => {
 		// console.log(game, "<--- This is game in gamesList");
@@ -15,14 +19,16 @@ const Games = ({games, playerId, available}) => {
 
 		// })
 
-		return <li className="games" key={game.id}>{game.game_time} PM<br/>
+		return( 
+			<li className="games" key={game.id}>{game.game_time} PM<br/>
 				{game.game_date} <br />
 				Team {game.team1_id} VS. Team {game.team2_id} <br/>
-				<input key={playerId.id}id="checkBox" type="checkbox" value="false"/></li>
-			
-		})
+				<input type="checkbox" name="checkbox" onChange={this.handleCheck}/>
+			</li>
+		)
 
-	
+			
+	})
 
 	return (
 
