@@ -32,6 +32,11 @@ class GameContainer extends Component {
     	return games
 	
 	}
+	handleCheck = (event) => {
+
+		console.log(event.currentTarget.parentNode.dataset.gid)
+
+	}
 
 													
 
@@ -42,7 +47,7 @@ class GameContainer extends Component {
 		return (
 
 			<div>
-				<Games games={this.state.games} />	
+				<Games handleCheck={this.handleCheck} games={this.state.games} />	
 			</div>
 
 		)

@@ -5,17 +5,16 @@ import './style.css'
 const Games = (props) => {
 
 	const gamesList = props.games.map((game, i) => {
-
+		console.log(game)
 
 		return( 
-			<li className="games" key={game.id}>{game.game_time} PM<br/>
+			<li className="games" data-gid={game.id} key={game.id}>{game.game_time} PM<br/>
 				{game.game_date} <br />
 				Team {game.team1_id} VS. Team {game.team2_id} <br/>
-				<input type="checkbox" name="checkbox" onChange={this.handleCheck}/>
+				<input type="checkbox" name="checkbox" onChange={props.handleCheck}/>
 			</li>
 		)
 
-			
 	})
 
 	return (
@@ -26,7 +25,7 @@ const Games = (props) => {
 
 			<h1 className="schedule">Game Schedule</h1>
 			<h4 className="schedule">Check the games you are available for!</h4>
-		 	{gamesList}
+		 	<ul>{gamesList}</ul>
 		 	<button>Submit</button>
 		 </form>	
 

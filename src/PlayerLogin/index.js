@@ -10,16 +10,12 @@ class Login extends Component {
 
 	    this.state = {
 	      username: '',
-	      password: '',
-	      loggedIn: false
+	      password: ''
 	    }
 	}
 	handleSubmit = (e) => {
     	e.preventDefault();
     	this.props.doLogin(this.state.username, this.state.password)
-    	this.setState({
-    		loggedIn: true
-    	})	
     	
 	}
 
@@ -37,21 +33,15 @@ class Login extends Component {
 
 	    return (
 	    	<div>
-	    	<h1>Welcome back! </h1>
-	    		{
-					this.state.loggedIn 
-					?
-					<GameContainer />
-			
-					:
-	   	
+	    		<h1>Welcome back! </h1>
+	    	
 				<form onSubmit={this.handleSubmit}>
 					<input type="text" name="username" placeholder="username" value={this.state.username} onChange={this.handleInput}/>
 					<input type="password" name="password" placeholder="password" value={this.state.password} onChange={this.handleInput}/>
 					<button type="Submit" value="login">Login</button>
 
 				</form>	
-			}
+			
 			</div>
 
 	    )

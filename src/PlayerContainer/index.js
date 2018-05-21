@@ -106,32 +106,28 @@ class PlayerContainer extends Component {
 				password: password
 			})
 		})
+		console.log(parsedLoginResponse)
 		const parsedLoginResponse = await responsePromise.json();
 		if(parsedLoginResponse.success){
 			this.setState({
-				loggedIn: true
+				loggedIn: true,
+				playerId: parsedLoginResponse.player_id
 			})
-			this.getPlayers()
-			.then((players) => {
-				this.setState({players: players.all_players})
-			})
-			.catch((err) => {
-				console.log(err)
-			})
-			}else{
-				this.setState({
-					loginError: parsedLoginResponse.message
+		
+		}else{
+			this.setState({
+				loginError: parsedLoginResponse.message
 			})
 		}
 	}
 
-  handleClick = (e) => {
-    console.log(e.currentTarget.id)
-    this.setState({
-      buttons: false,
-      loginOrRegister: e.currentTarget.id
-    })
-  }
+	handleClick = (e) => {
+	    console.log(e.currentTarget.id)
+	    this.setState({
+		    buttons: false,
+		    loginOrRegister: e.currentTarget.id
+	    })
+	}
 	
 	render(){
 
