@@ -55,10 +55,11 @@ class PlayerContainer extends Component {
 			})
 
 		})
-		console.log(playersJson, "<-- this is players json")
+		// console.log(playersJson, "<-- this is players json")
 
 		const newPlayer = await playersJson.json();
-		console.log("this is after new player")
+		console.log(newPlayer, "<---- newPlayer in addPlayer()")
+		
 			this.setState({players: [...this.state.players, newPlayer.player]});
 	
 			return newPlayer;
@@ -67,8 +68,14 @@ class PlayerContainer extends Component {
 
 
 	doRegister = async (name, username, password, pos, email, phone) => {
-		
+		console.log("this is inside do Register")
+		console.log(name, 'this is name')
+		console.log(pos, 'this is poooooooos')
+		console.log(email, "this is email")
+		console.log(phone, "this is phone")
+
 		const responsePromise = await fetch('http://localhost:9292/player/register', {
+
 			method: 'POST',
 			credentials: 'include', 
 			body: JSON.stringify({
@@ -79,9 +86,10 @@ class PlayerContainer extends Component {
 				email: email,
 				phone: phone
 			})
+			
 
 		})
-
+		console.log(responsePromise, "this is responsePromise")
 		const parsedRegisterResponse = await responsePromise.json();
 		console.log(parsedRegisterResponse, "<----this is parsedRegisterResponse  in doRegister")
 		console.log(parsedRegisterResponse.player_id, "<--- This is playerid")
@@ -92,8 +100,6 @@ class PlayerContainer extends Component {
 		})
 
 		console.log(this.state, "this is state in do register after player id is assigned")
-
-
 	}
 
 

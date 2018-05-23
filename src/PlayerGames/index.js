@@ -24,6 +24,8 @@ class PlayerGames extends Component {
 			credentials: 'include'
 		})
 		const availPlayers = await availplayersJson.json()
+
+			console.log(availPlayers, "<-----this is availPlayers")
 		this.setState({
 			availPlayers: availPlayers,
 			modalOpen: true
@@ -32,7 +34,7 @@ class PlayerGames extends Component {
 
 	render(){
 
-		console.log("render() is being called in PlayerGame")
+		console.log(this.state, "this is state in render in the PlayerGames Component")
 
 		const gamesList = this.props.games.map((game, i) => {
 		// console.log(game, "<--- This is game in gamesList");

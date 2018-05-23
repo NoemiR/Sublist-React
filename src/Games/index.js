@@ -5,8 +5,7 @@ import './style.css'
 const Games = (props) => {
 
 	const gamesList = props.games.map((game, i) => {
-		console.log(game)
-
+		
 		return( 
 			<li className="games" data-gid={game.id} key={game.id}>{game.game_time} PM<br/>
 				{game.game_date} <br />
@@ -30,7 +29,6 @@ const Games = (props) => {
 		 </form>	
 
 		</div>
-
 
 	)
 }
