@@ -63,7 +63,6 @@ class PlayerContainer extends Component {
 			this.setState({players: [...this.state.players, newPlayer.player]});
 	
 			return newPlayer;
-
 	}
 
 
@@ -89,7 +88,6 @@ class PlayerContainer extends Component {
 			
 
 		})
-		console.log(responsePromise, "this is responsePromise")
 		const parsedRegisterResponse = await responsePromise.json();
 		console.log(parsedRegisterResponse, "<----this is parsedRegisterResponse  in doRegister")
 		console.log(parsedRegisterResponse.player_id, "<--- This is playerid")
@@ -136,7 +134,7 @@ class PlayerContainer extends Component {
 	}
 	
 	render(){
-
+		// console.log(this.state, 'this is state in PlayerContainer---------------------------')
 		if(this.state.loggedIn) {
 
 			return <GameContainer playerId={this.state.playerId}/>

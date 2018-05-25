@@ -10,7 +10,7 @@ const Games = (props) => {
 			<li className="games" data-gid={game.id} key={game.id}>{game.game_time} PM<br/>
 				{game.game_date} <br />
 				Team {game.team1_id} VS. Team {game.team2_id} <br/>
-				<input type="checkbox" name="checkbox" onChange={props.handleCheck}/>
+				<input type="checkbox" name="checkbox" onClick={props.handleCheck}/>
 			</li>
 		)
 

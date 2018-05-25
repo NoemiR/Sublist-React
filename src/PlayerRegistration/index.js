@@ -36,7 +36,7 @@ class PlayerRegistration extends Component {
 	render(){
 
 		// console.log(this.state, "<-- this is state in PlayerRegistration");
-		console.log(this.props, "<-- This is props in PlayerRegistration")
+	
 		return(
 		
 
