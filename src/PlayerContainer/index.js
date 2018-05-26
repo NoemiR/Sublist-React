@@ -151,8 +151,10 @@ class PlayerContainer extends Component {
 		      	<div className="welcome">
 		          <h1 className="content"> SOME PHRASE HERE</h1>
 		          <p className="content">Would you like to join a team, but can't commit fulltime? </p>
+		          <div className="form-container">
 		            <button id="register" onClick={this.handleClick}>Register</button>   
 		            <button id="login" onClick={this.handleClick}>Login</button>
+		          </div> 
 			    </div>
 		   	   	:
 		      	<div>

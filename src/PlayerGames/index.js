@@ -52,7 +52,7 @@ class PlayerGames extends Component {
 
 		return (
 			<div>
-				{ this.state.modalOpen ? <PlayerInfoModal closeModal={this.closeModal }availPlayers={this.state.availPlayers} /> : null  }
+				{ this.state.modalOpen ? <PlayerInfoModal closeModal={this.closeModal}availPlayers={this.state.availPlayers} /> : null  }
 
 				<div className="container">
 					<h2 className="schedule">Game Schedule -- Click to see who's available for a certain game</h2>
