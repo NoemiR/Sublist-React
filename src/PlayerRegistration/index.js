@@ -12,7 +12,8 @@ class PlayerRegistration extends Component {
 			password: '',
 			pos: '',
 			email: '',
-			phone: ''
+			phone: '',
+			backButton: true
 
 		}
 	}
@@ -31,6 +32,11 @@ class PlayerRegistration extends Component {
 
 	}
 
+	handleBackButton = (e) => {
+		console.log(e.currentTarget)
+		this.setState({ backButton: false} )
+	}
+
 	
 
 	render(){
@@ -38,22 +44,30 @@ class PlayerRegistration extends Component {
 		// console.log(this.state, "<-- this is state in PlayerRegistration");
 	
 		return(
-		
 
-					<div className="form">
-						<form onSubmit={this.handleSubmit}>
-							<input type="text" name="name" placeholder="name" onChange={this.handleInput}/><br/>
-							<input type="text" name="username" placeholder="desired username" value={this.state.username} onChange={this.handleInput}/><br/>
-				          	<input type="password" name="password" placeholder="password" value={this.state.password} onChange={this.handleInput} /><br/>
-				          	<input type="text" name="pos" placeholder="position" onChange={this.handleInput} /><br/>
-				          	<input type="email" name="email" placeholder="email" onChange={this.handleInput} /><br/>
-				          	<input type="text" name="phone" placeholder="phone" onChange={this.handleInput} /><br/>
+			this.state.backButton 
+     		 ?
+			<div>	
+				<button onClick={this.handleBackButton} className="back-button">Back</button>
 
-							<button>Register</button>
+				<div className="form">
+					<form onSubmit={this.handleSubmit}>
+						<input type="text" name="name" placeholder="name" onChange={this.handleInput}/><br/>
+						<input type="text" name="username" placeholder="desired username" value={this.state.username} onChange={this.handleInput}/><br/>
+			          	<input type="password" name="password" placeholder="password" value={this.state.password} onChange={this.handleInput} /><br/>
+			          	<input type="text" name="pos" placeholder="position" onChange={this.handleInput} /><br/>
+			          	<input type="email" name="email" placeholder="email" onChange={this.handleInput} /><br/>
+			          	<input type="text" name="phone" placeholder="phone" onChange={this.handleInput} /><br/>
 
-						
-						</form>
-					</div>
+						<button>Register</button>
+					
+					</form>
+				</div>
+			</div>
+			:
+			<div>
+				<PlayerContainer />
+			</div>
 			
 
 		)

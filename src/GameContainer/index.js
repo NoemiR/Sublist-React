@@ -73,45 +73,65 @@ class GameContainer extends Component {
 	
 	}
 	handleCheck = (event) => {
-	
+
+		console.log('handle check is being run')
+
 		// console.log(event.currentTarget.parentNode.dataset.gid)
 		// Need to get value of checkbox
 			// e.current.target.value
 
+		// Right now its the second click that is getting stored
+
+		// handleCheck run on the form submit rather then clicking the box??????
+
 		const gameId = event.currentTarget.parentNode.dataset.gid
+		// gameId is logging on every click 
+
 		console.log(gameId, "<--- This is gameId")
 		// console.log(event.currentTarget.parentNode.dataset.gid.value, "<--this is e.current.target.value")
+		const checkbox = event.currentTarget
+		console.log(event.currentTarget, "THIS IS CURRENT TARGET")
+		// const value = event.currentTarget.value
+		// console.log(event.currentTarget.value, "<-----this is current target value")
 
-		// if gameId = 1 and checkbox value equal checked then update state in gameOne with player id, game id, and available
 
-			if(gameId === "1") {
+		if(checkbox.checked === true){
+			console.log("checkbox is on")
+		} else {
+			console.log("checkbox is off ")
+		}
+		// THIS WOULD WORK BETTER IF ITS DONE ON SUBMIT INSTEAD OF ON CLICK 
+
+		// if gameId = 1 AND checkbox value equal checked then update state in gameOne with player id, game id, and available
+
+		if(gameId === "1" && checkbox.checked === true) {
 			console.log("Game 1 was clicked")
-				this.setState({
+			this.setState({
 				game1: {
 					player_id: this.props.playerId,
 					game_id: gameId,
 					available: true
-			}
+				}
 			})
-		}	else if(gameId === "2") {
+		}	else if(gameId === "2" && checkbox.checked === true) {
 			console.log("Game 2 was clicked")
 				this.setState({
 					game2: {
 						player_id: this.props.playerId,
 						game_id: gameId,
 						available: true
-				}
+					}
 				})		
-		} 	else if(gameId === "3") {
+		} 	else if(gameId === "3" && checkbox.checked === true) {
 			console.log("Game 3 was clicked")
-				this.setState({
-					game3: {
-						player_id: this.props.playerId,
-						game_id: gameId,
-						available: true
+			this.setState({
+				game3: {
+					player_id: this.props.playerId,
+					game_id: gameId,
+					available: true
 				}
-				})	
-		}	else if(gameId === "4") {
+			})	
+		}	else if(gameId === "4" && checkbox.checked === true) {
 			console.log("Game 4 was clicked")
 			this.setState({
 					game4: {
@@ -120,7 +140,7 @@ class GameContainer extends Component {
 						available: true
 				}
 				})	
-		}	else if(gameId === "5") {
+		}	else if(gameId === "5" && checkbox.checked === true) {
 			console.log("Game 5 was clicked")
 				this.setState({
 					game5: {
@@ -130,7 +150,7 @@ class GameContainer extends Component {
 				}
 				})	
 		
-		} 	else if(gameId === "6") {
+		} 	else if(gameId === "6" && checkbox.checked === true) {
 			console.log("Game 6 was clicked")
 				this.setState({
 					game6: {
@@ -139,7 +159,7 @@ class GameContainer extends Component {
 						available: true
 				}
 				})	
-		}	else if(gameId === "7") {
+		}	else if(gameId === "7" && checkbox.checked === true) {
 			console.log("Game 7 was clicked")
 				this.setState({
 					game7: {
@@ -148,7 +168,7 @@ class GameContainer extends Component {
 						available: true
 				}
 				})	
-		} 	else if(gameId === "8") {
+		} 	else if(gameId === "8" && checkbox.checked === true) {
 			console.log("Game 8 was clicked")
 				this.setState({
 					game8: {
@@ -178,13 +198,8 @@ class GameContainer extends Component {
 			// each table needs to have player id game id and boolean. this is whats being set in state. each game has this
 			// How to send this to database
 
-
-
 		this.checkAvailability()
 
-		// (this.state.game1, this.state.game2, this.state.game3, this.state.game4, this.state.game5, this.state.game6. this.state.game7, this.state.game8)
-
-	
 	}
 	checkAvailability = async () => {
 		console.log("checkAvailability function is running")

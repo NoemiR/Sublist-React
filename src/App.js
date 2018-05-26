@@ -24,7 +24,6 @@ class App extends Component {
   }
 
 
-
   handleClick = (e) => {
     console.log(e.currentTarget.id)
     this.setState({
@@ -43,9 +42,6 @@ class App extends Component {
       ?
       <div className="welcome">
 
-
-            <h1> Play Hard, Get Dirty, Have Fun! </h1>
-
             <h5>Please register as a Player or a Team Representative to join our league</h5>
 
 
@@ -60,7 +56,7 @@ class App extends Component {
 
       :
       <div>
-      {this.state.whichApp === "team" ? <TeamContainer /> : <PlayerContainer />}
+        {this.state.whichApp === "team" ? <TeamContainer /> : <PlayerContainer />}
 
       </div>
     )
