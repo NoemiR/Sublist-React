@@ -149,7 +149,7 @@ class PlayerContainer extends Component {
 				this.state.buttons 
 		      	?
 		      	<div className="welcome">
-		          <h1 className="content"> Life's a soccer ball. Can you kick it?</h1>
+		          <h1 className="content"> SOME PHRASE HERE</h1>
 		          <p className="content">Would you like to join a team, but can't commit fulltime? </p>
 		            <button id="register" onClick={this.handleClick}>Register</button>   
 		            <button id="login" onClick={this.handleClick}>Login</button>

@@ -24,6 +24,7 @@ const Games = (props) => {
 				<h1 className="schedule">Game Schedule</h1>
 				<h4 className="schedule">Check the games you are available for!</h4>
 			 	<ul>{gamesList}</ul>
+			 	<button className='submit'>Submit Your Games</button>
 			</form>	
 
 		</div>

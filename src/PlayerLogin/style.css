@@ -1,0 +1,13 @@
+.back-button-login {
+	display: flex
+}
+
+.form {
+
+	border: 3px solid black;
+	background-color: lightgrey;
+	width: 35vw;
+	margin: auto
+
+}
+

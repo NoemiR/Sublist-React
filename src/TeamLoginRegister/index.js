@@ -8,7 +8,9 @@ class TeamLoginRegister extends Component {
 		this.state = {
 			username: "",
 			password: "",
-			registering: false
+			registering: false,
+		
+
 		}	
 
 	}
@@ -36,14 +38,17 @@ class TeamLoginRegister extends Component {
 			registering: false
 		})
 	}
-
+	handleBackButton = (e) => {
+		this.setState({ backButtonLogin: false} )
+	}
 
 	render(){
 
 		return (
 
-			<div className="form">
-				<h1>Need a player? sign in to see who is available </h1>
+			<div className="team-form">
+				<h1>Short on players?</h1> 
+				<h2>Check out who is available!</h2>
 				<p><span className={ this.state.registering ? "current" : null }onClick={this.registration}>Register</span> • <span className={this.state.registering ? null : "current" }onClick={this.loggingIn}>Login</span></p>
 				<form onSubmit={this.handleSubmit} > 
 				
@@ -53,6 +58,7 @@ class TeamLoginRegister extends Component {
 				<input type="submit" value={this.state.registering ? "Register" : "Login"} />
 				</form>
 			</div>
+
 
 
 			)

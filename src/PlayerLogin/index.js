@@ -1,6 +1,8 @@
 import React, {Component} from 'react'
 import Players from '../Players'
 import GameContainer from '../GameContainer'
+import PlayerContainer from '../PlayerContainer'
+import './style.css'
 
 
 
@@ -10,7 +12,8 @@ class Login extends Component {
 
 	    this.state = {
 	      username: '',
-	      password: ''
+	      password: '',
+	      backButtonLogin: true
 	    }
 	}
 	handleSubmit = (e) => {
@@ -27,22 +30,35 @@ class Login extends Component {
 
 	}
 
+	handleBackButtonLogin = (e) => {
+		this.setState({ backButtonLogin: false} )
+	}
+
 
   	render(){
 
 
 	    return (
-	    	<div>
-	    		<h1>Welcome back! </h1>
-	    	
-				<form onSubmit={this.handleSubmit}>
-					<input type="text" name="username" placeholder="username" value={this.state.username} onChange={this.handleInput}/>
-					<input type="password" name="password" placeholder="password" value={this.state.password} onChange={this.handleInput}/>
-					<button type="Submit" value="login">Login</button>
+	    	this.state.backButtonLogin
+     		 ?
 
-				</form>	
-			
-			</div>
+		    	<div>
+		    		<button onClick={this.handleBackButtonLogin} className="back-button-login">Back</button>
+		    		<h1>Welcome back! </h1>
+		    	
+		    	
+					<form className="form" onSubmit={this.handleSubmit}>
+						<input type="text" name="username" placeholder="username" value={this.state.username} onChange={this.handleInput}/>
+						<input type="password" name="password" placeholder="password" value={this.state.password} onChange={this.handleInput}/>
+						<button type="Submit" value="login">Login</button>
+
+					</form>	
+					
+				</div>
+				:
+				<div>
+					<PlayerContainer />
+				</div>
 
 	    )
     }

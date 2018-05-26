@@ -33,7 +33,6 @@ class PlayerRegistration extends Component {
 	}
 
 	handleBackButton = (e) => {
-		console.log(e.currentTarget)
 		this.setState({ backButton: false} )
 	}
 
@@ -47,9 +46,10 @@ class PlayerRegistration extends Component {
 
 			this.state.backButton 
      		 ?
+
 			<div>	
 				<button onClick={this.handleBackButton} className="back-button">Back</button>
-
+				<h2>Please register before you select your available games</h2>
 				<div className="form">
 					<form onSubmit={this.handleSubmit}>
 						<input type="text" name="name" placeholder="name" onChange={this.handleInput}/><br/>

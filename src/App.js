@@ -42,7 +42,8 @@ class App extends Component {
       ?
       <div className="welcome">
 
-            <h5>Please register as a Player or a Team Representative to join our league</h5>
+            <h1>Welcome to Sublist</h1>
+            <h5>Please register as a Player or a Team Representative to join</h5>
 
 
             <button className="button" id="player" onClick={this.handleClick}>Player App</button>
@@ -56,7 +57,7 @@ class App extends Component {
 
       :
       <div>
-        {this.state.whichApp === "team" ? <TeamContainer /> : <PlayerContainer />}
+      {this.state.whichApp === "team" ? <TeamContainer /> : <PlayerContainer />}
 
       </div>
     )

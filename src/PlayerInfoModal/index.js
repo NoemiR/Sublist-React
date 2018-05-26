@@ -22,8 +22,9 @@ const PlayerInfoModal = (props) => {
 	return(
 
 			<div className="modal">
-
+				<div onClick={props.closeModal}className='close'>&#10006;</div>
 				<h1>Players Available</h1>
+
 					<ul>
 						{playerList}
 					</ul>
