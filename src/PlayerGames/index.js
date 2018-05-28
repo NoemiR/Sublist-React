@@ -55,6 +55,7 @@ class PlayerGames extends Component {
 				{ this.state.modalOpen ? <PlayerInfoModal closeModal={this.closeModal}availPlayers={this.state.availPlayers} /> : null  }
 
 				<div className="container">
+				<button onClick={this.props.doLogoutTeam} className='logout'>Log Out</button>
 					<h2 className="schedule">Game Schedule -- Click to see who's available for a certain game</h2>
 				 	{gamesList}
 				</div>

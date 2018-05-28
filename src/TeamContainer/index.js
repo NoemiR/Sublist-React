@@ -103,6 +103,15 @@ class TeamContainer extends Component {
                     })
             }
     }
+
+    doLogoutTeam = async () => {
+        const logoutResponsePromise = await fetch('http://localhost:9292/team/logout', {
+            credentials: 'include', 
+        })
+        this.setState({loggedIn: false,})
+    }
+
+
     render(){
         console.log(this.state, "<--- This is this.state in render in Team Container")
         return(
@@ -111,7 +120,7 @@ class TeamContainer extends Component {
                     this.state.loggedIn 
                     ?
                     <div>
-                        <PlayerGames games={this.state.games} getGames={this.getGames} getAvailPlayers={this.getAvailPlayers} />  
+                        <PlayerGames doLogoutTeam={this.doLogoutTeam} games={this.state.games} getGames={this.getGames} getAvailPlayers={this.getAvailPlayers} />  
                     </div>
                     :   
                     <TeamLoginRegister doLogin={this.doLogin} doRegister={this.doRegister} />
