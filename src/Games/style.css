@@ -30,3 +30,7 @@ body {
 	margin-left: 5vw;
 	margin-top: 0px;
 }
+
+.logout{
+	display: flex;
+}

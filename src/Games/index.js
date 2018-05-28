@@ -21,6 +21,7 @@ const Games = (props) => {
 		<div>
 
 			<form>
+				<button onClick={props.doLogout}className='logout'>Log Out</button>
 				<h1 className="schedule">Game Schedule</h1>
 				<h4 className="schedule">Check the games you are available for!</h4>
 			 	<ul>{gamesList}</ul>

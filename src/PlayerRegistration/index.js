@@ -48,7 +48,7 @@ class PlayerRegistration extends Component {
      		 ?
 
 			<div>	
-				<button onClick={this.handleBackButton} className="back-button">Back</button>
+				<button onClick={this.handleBackButton} className="back-button">&#8249;</button>
 				<h2>Please register before you select your available games</h2>
 				<div className="form">
 					<form onSubmit={this.handleSubmit}>

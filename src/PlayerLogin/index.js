@@ -43,7 +43,7 @@ class Login extends Component {
      		 ?
 
 		    	<div>
-		    		<button onClick={this.handleBackButtonLogin} className="back-button-login">Back</button>
+		    		<button onClick={this.handleBackButtonLogin} className="back-button-login">&#8249;</button>
 		    		<h1>Welcome back! </h1>
 		    	
 		    	

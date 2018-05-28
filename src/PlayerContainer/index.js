@@ -125,6 +125,13 @@ class PlayerContainer extends Component {
 		}
 	}
 
+	doLogout = async () => {
+		const logoutResponsePromise = await fetch('http://localhost:9292/player/logout', {
+			credentials: 'include', 
+		})
+		this.setState({loggedIn: false,})
+	}
+
 	handleClick = (e) => {
 	    console.log(e.currentTarget.id)
 	    this.setState({
@@ -137,7 +144,7 @@ class PlayerContainer extends Component {
 		// console.log(this.state, 'this is state in PlayerContainer---------------------------')
 		if(this.state.loggedIn) {
 
-			return <GameContainer playerId={this.state.playerId}/>
+			return <GameContainer doLogout={this.doLogout}playerId={this.state.playerId}/>
 		}
 
 		else  {
@@ -149,7 +156,7 @@ class PlayerContainer extends Component {
 				this.state.buttons 
 		      	?
 		      	<div className="welcome">
-		          <h1 className="content"> SOME PHRASE HERE</h1>
+		          <h1 className="content"> Play when you can </h1>
 		          <p className="content">Would you like to join a team, but can't commit fulltime? </p>
 		          <div className="form-container">
 		            <button id="register" onClick={this.handleClick}>Register</button>   

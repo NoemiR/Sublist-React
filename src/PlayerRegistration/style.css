@@ -21,6 +21,10 @@ input{
 
 
 .back-button {
-	display: flex
+	display: flex;
+	/*width: 3.5vw;*/
+	 padding: 8px 16px;
+	 border-radius: 50%;
+	 background-color: lightgrey;
 
 }
