@@ -22,5 +22,9 @@
 * The list of games will each have available players who have signed up for that games
 * Players contact information will be available when user clicks available players button
 
+
+
+
+## Sublist Wireframe
 ![Sublist Wireframe](/wireframe.jpg)
 
