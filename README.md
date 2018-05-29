@@ -22,5 +22,5 @@
 * The list of games will each have available players who have signed up for that games
 * Players contact information will be available when user clicks available players button
 
-![alt text](https://imgur.com/a/lu9GGy5)
+
 
