@@ -43,7 +43,7 @@ class App extends Component {
       <div className="welcome">
 
             <h1>Welcome to Sublist</h1>
-            <h4>Please register as a Player or a Team Representative to join</h4>
+            <h4>Please continue as a Player or a Team Representative</h4>
 
           <div className='form'>  
             <button className="button" id="player" onClick={this.handleClick}>Player</button>

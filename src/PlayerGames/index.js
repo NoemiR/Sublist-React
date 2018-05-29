@@ -46,7 +46,7 @@ class PlayerGames extends Component {
 				{game.game_date}  <br/>
 				{game.game_time} PM <br/>
 				Team {game.team1_id} VS. Team {game.team2_id} <br/>
-				<button id={game.id} onClick={this.getAvailPlayers}>View Players</button></li>
+				<button className="view-players"id={game.id} onClick={this.getAvailPlayers}>View Players</button></li>
 
 		})
 
@@ -56,7 +56,8 @@ class PlayerGames extends Component {
 
 				<div className="container">
 				<button onClick={this.props.doLogoutTeam} className='logout'>Log Out</button>
-					<h2 className="schedule">Game Schedule -- Click to see who's available for a certain game</h2>
+					<h2 className="schedule">Game Schedule</h2>
+					<h3>Click to see who's available for each game</h3>
 				 	{gamesList}
 				</div>
 
