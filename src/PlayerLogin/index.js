@@ -46,7 +46,7 @@ class Login extends Component {
 		    		<button onClick={this.handleBackButtonLogin} className="back-button-login">&#8249;</button>
 		    		<h1>Welcome back! </h1>
 		    	
-		    	
+		    			{this.props.loginError != '' ? <p className="login-error">{this.props.loginError}</p> : null }
 					<form className="form" onSubmit={this.handleSubmit}> <br/>
 						<input type="text" name="username" placeholder="username" value={this.state.username} onChange={this.handleInput}/>
 						<input type="password" name="password" placeholder="password" value={this.state.password} onChange={this.handleInput}/>

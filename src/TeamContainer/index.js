@@ -75,6 +75,10 @@ class TeamContainer extends Component {
               .catch((err) => {
                 console.log(err)
               })
+        } else {
+            this.setState({
+                loginError: parsedLoginResponse.message
+             })
         }
     }
     doRegister = async (username, password) => {
@@ -101,14 +105,14 @@ class TeamContainer extends Component {
                     .catch((err) => {
                         console.log(err)
                     })
-            }
+            } 
     }
 
     doLogoutTeam = async () => {
         const logoutResponsePromise = await fetch('http://localhost:9292/team/logout', {
             credentials: 'include', 
         })
-        this.setState({loggedIn: false,})
+        this.setState({loggedIn: false})
     }
 
 
@@ -123,7 +127,7 @@ class TeamContainer extends Component {
                         <PlayerGames doLogoutTeam={this.doLogoutTeam} games={this.state.games} getGames={this.getGames} getAvailPlayers={this.getAvailPlayers} />  
                     </div>
                     :   
-                    <TeamLoginRegister doLogin={this.doLogin} doRegister={this.doRegister} />
+                    <TeamLoginRegister doLogin={this.doLogin} doRegister={this.doRegister} loginError={this.state.loginError} />
                 }
             </div>
         )

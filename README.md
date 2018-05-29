@@ -17,10 +17,10 @@
 
 ## As a Team Representative:
 
-* The user can login/register 
-* The team rep will see a list of games 
-* The list of games will each have available players who have signed up for that games
-* Players contact information will be available when user clicks available players button
+* The user can login/register.
+* The team rep will see a list of games.
+* The list of games will each have available players who have signed up for that games.
+* Players contact information will be available when user clicks available players button.
 
 
 

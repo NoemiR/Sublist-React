@@ -26,3 +26,8 @@ span {
 	margin: auto
 }
 
+.login-error{
+	padding: 20px;
+	background-color: rgba(255, 69, 61, 0.5)
+}
+

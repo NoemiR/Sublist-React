@@ -17,7 +17,8 @@ class PlayerContainer extends Component {
 			loggedIn: false,
 			register: true,
 			loginOrRegister: '',
-      		buttons: true
+      		buttons: true,
+      		loginError: "",
 		}
 	}
 	componentDidMount(){
@@ -165,7 +166,7 @@ class PlayerContainer extends Component {
 			    </div>
 		   	   	:
 		      	<div>
-		      		{ this.state.loginOrRegister === "register" ? <PlayerRegistration playerId={this.state.playerId} addPlayer={this.addPlayer} doRegister={this.doRegister} /> : <PlayerLogin doLogin={this.doLogin} /> }
+		      		{ this.state.loginOrRegister === "register" ? <PlayerRegistration playerId={this.state.playerId} addPlayer={this.addPlayer} doRegister={this.doRegister} /> : <PlayerLogin doLogin={this.doLogin} loginError={this.state.loginError} /> }
 				</div>
 
 			)

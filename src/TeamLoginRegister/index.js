@@ -49,6 +49,7 @@ class TeamLoginRegister extends Component {
 			<div className="team-form">
 				<h1>Short on players?</h1> 
 				<h2>Check out who is available!</h2>
+				{this.props.loginError != '' ? <p className="login-error">{this.props.loginError}</p> : null }
 				<p><span className={ this.state.registering ? "current" : null }onClick={this.registration}>Register</span> • <span className={this.state.registering ? null : "current" }onClick={this.loggingIn}>Login</span></p>
 				<form onSubmit={this.handleSubmit} > 
 				

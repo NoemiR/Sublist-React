@@ -11,7 +11,13 @@
 	border: 3px solid black;
 	background-color: lightgrey;
 	width: 35vw;
-	margin: auto
+	margin: auto;
 
 }
 
+.login-error{
+	padding: 20px;
+	width: 35vw;
+	margin: auto;
+	background-color: rgba(255, 69, 61, 0.5)
+}
