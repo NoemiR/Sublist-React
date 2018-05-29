@@ -15,12 +15,12 @@
 * Their information and games checked gets stored so the teams can see who is available to play.
 
 
-## As a Team Representative 
+## As a Team Representative:
 
 * The user can login/register 
 * The team rep will see a list of games 
 * The list of games will each have available players who have signed up for that games
 * Players contact information will be available when user clicks available players button
 
-
+![Sublist Wireframe](/wireframe.jpg)
 
