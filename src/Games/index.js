@@ -36,5 +36,3 @@ const Games = (props) => {
 
 
 export default Games;
-
-// checked={game.available === true}
