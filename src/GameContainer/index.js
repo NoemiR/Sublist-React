@@ -8,67 +8,31 @@ class GameContainer extends Component {
 
 		this.state = {
 			games: [],
-			game1: {
-				player_id: '',
-				game_id: '',
-				available: false
-			},
-			game2: {
-				player_id: '',
-				game_id: '',
-				available: false
-			},
-			game3: {
-				player_id: '',
-				game_id: '',
-				available: false
-			},
-			game4: {
-				player_id: '',
-				game_id: '',
-				available: false	
-			},
-			game5: {
-				player_id: '',
-				game_id: '',
-				available: false	
-			},
-			game6: {
-				player_id: '',
-				game_id: '',
-				available: false
-			},
-			game7: {
-				player_id: '',
-				game_id: '',
-				available: false	
-			},
-			game8: {
-				player_id: '',
-				game_id: '',
-				available: false
-			}
 		}
-
 	} 
 
 	componentDidMount(){
 		this.getGames()
 		.then((games) => {
-			this.setState({games: games.all_games})
+			this.setState({games: games.availgames})
 		})
 		.catch((err) => {
 			console.log(err)
 		})
 	}
 	getGames = async () => {
+		console.log('getGames() is running')
+
+		const id = this.props.playerId
 
 		// console.log("This is before the fetch api call")
 
-		const gamesJson = await fetch("http://localhost:9292/games", {
+		const gamesJson = await fetch("http://localhost:9292/player/signedup/" + id, {
         	credentials: 'include'
      	}); 
 		const games = await gamesJson.json()
+		console.log(games, "this is games in getGames")
+
     	return games
 	
 	}
@@ -76,167 +40,94 @@ class GameContainer extends Component {
 
 		console.log('handle check is being run')
 
-		// console.log(event.currentTarget.parentNode.dataset.gid)
-		// Need to get value of checkbox
-			// e.current.target.value
-
-		// Right now its the second click that is getting stored
-
-		// handleCheck run on the form submit rather then clicking the box??????
-
+		// hit the route new route and have a check box appear if available is true
+		// # 1 Get checkboxes to already appeared checked if they are true
+			// # be able to change them 
+		// # 2 change availability for only that game and update state for only that game
+		// ??	
 		const gameId = event.currentTarget.parentNode.dataset.gid
-		// gameId is logging on every click 
-
-		console.log(gameId, "<--- This is gameId")
-		// console.log(event.currentTarget.parentNode.dataset.gid.value, "<--this is e.current.target.value")
+		// // console.log(event.currentTarget.parentNode.dataset.gid.value, "<--this is e.current.target.value")
+		// console.log(gameId, "<--- This is gameId")
 		const checkbox = event.currentTarget
 		console.log(event.currentTarget, "THIS IS CURRENT TARGET")
-		// const value = event.currentTarget.value
-		// console.log(event.currentTarget.value, "<-----this is current target value")
+
+		// Needs to go through games array and if that game is checked up available in that game to true
+			// update state
+		// this happens when checkbox is on (run this.addAvailability())
+		// when checkbox is clicked off update state to available false 
+		// run this.removeAvailability()
+
+		// ##
+		// const available = this.state.games.map((game, i) => {
+		// 	// console.log(game, "<--- This is each game")
+		// 	if(gameId === game.id && checkbox.checked){
+		// 		game.available === true
+		// 		console.log("checkbox is on")
+		// 	} else {
+		// 		console.log("checkbox is off ")
+		// 	}
 
 
-		if(checkbox.checked === true){
-			console.log("checkbox is on")
+		// })
+		// ##
+
+
+		if(checkbox.checked){
+			console.log(gameId, "was clicked and checkbox is on")
+			// change available FOR ONLY THAT GAME (game.available) to true
+	
+			this.addAvailability(checkbox, gameId)
+
 		} else {
-			console.log("checkbox is off ")
+			console.log(gameId, "was clicked checkbox is off")
+			// keep available FOR ONLY THAT GAME false 
+			const id = event.currentTarget.id
+			this.removeAvailability(id)
 		}
-		// THIS WOULD WORK BETTER IF ITS DONE ON SUBMIT INSTEAD OF ON CLICK 
-
-		// if gameId = 1 AND checkbox value equal checked then update state in gameOne with player id, game id, and available
-
-		if(gameId === "1" && checkbox.checked === true) {
-			console.log("Game 1 was clicked")
-			this.setState({
-				game1: {
-					player_id: this.props.playerId,
-					game_id: gameId,
-					available: true
-				}
-			})
-		}	else if(gameId === "2" && checkbox.checked === true) {
-			console.log("Game 2 was clicked")
-				this.setState({
-					game2: {
-						player_id: this.props.playerId,
-						game_id: gameId,
-						available: true
-					}
-				})		
-		} 	else if(gameId === "3" && checkbox.checked === true) {
-			console.log("Game 3 was clicked")
-			this.setState({
-				game3: {
-					player_id: this.props.playerId,
-					game_id: gameId,
-					available: true
-				}
-			})	
-		}	else if(gameId === "4" && checkbox.checked === true) {
-			console.log("Game 4 was clicked")
-			this.setState({
-					game4: {
-						player_id: this.props.playerId,
-						game_id: gameId,
-						available: true
-				}
-				})	
-		}	else if(gameId === "5" && checkbox.checked === true) {
-			console.log("Game 5 was clicked")
-				this.setState({
-					game5: {
-						player_id: this.props.playerId,
-						game_id: gameId,
-						available: true
-				}
-				})	
 		
-		} 	else if(gameId === "6" && checkbox.checked === true) {
-			console.log("Game 6 was clicked")
-				this.setState({
-					game6: {
-						player_id: this.props.playerId,
-						game_id: gameId,
-						available: true
-				}
-				})	
-		}	else if(gameId === "7" && checkbox.checked === true) {
-			console.log("Game 7 was clicked")
-				this.setState({
-					game7: {
-						player_id: this.props.playerId,
-						game_id: gameId,
-						available: true
-				}
-				})	
-		} 	else if(gameId === "8" && checkbox.checked === true) {
-			console.log("Game 8 was clicked")
-				this.setState({
-					game8: {
-						player_id: this.props.playerId,
-						game_id: gameId,
-						available: true
-				}
-				})	
-		}		
-
-		// ##################
-
-		// FOR EVERY GAME I NEED TO SEND OVER PLAYER ID, GAME ID AND AVAILABLE (TRUE OR FALSE)
-			// If i send over state for each game that should be whats happening
-			// The true or false gets changed based on if the box is checked not 
-		// previously was only sending it for one game. (created 8 games in state)
-
-		// FOR EVERY PLAYER THAT CLICKS SUBMIT THIS NEEDS TO HAPPEN
-
-		// ID PLAYER 6 GAME ID 1 FALSE 
-		// ID PLAYER 6 GAME ID 2 TRUE
-		// ID PLAYER 6 GAME ID 3 TRUE
-		// ETC ETC	
-
-		// WHAT DO I NEED TO CHANGE ON BACK END
-			// Create 8 availibiliity tables one for each game
-			// each table needs to have player id game id and boolean. this is whats being set in state. each game has this
-			// How to send this to database
-
-		this.checkAvailability()
-
 	}
-	checkAvailability = async () => {
-		console.log("checkAvailability function is running")
-		// console.log(game1, "<---- This is game1 in checkAvailability()------")
-		// Pay load is empty right now in
 
-		// This is what is being sent over to database. 
+	addAvailability = async (checkbox, gameId) => {
+		// # 1 Need to send over to db player_id and game_id because of the availiblity table 
+			// not able to get gameId in this function as its currently structured
+
+
+		console.log("addAvailability is running")
 		const availableResponse = await fetch("http://localhost:9292/available/players", {
-			method: "POST",
+			method: "POST", 		
 			credentials: 'include', 
 			body: JSON.stringify({
-				game1: this.state.game1,
-				game2: this.state.game2,
-				game3: this.state.game3,
-				game4: this.state.game4,
-				game5: this.state.game5,
-				game6: this.state.game6,
-				game7: this.state.game7,
-				game8: this.state.game8,	
-				
-			})
-		})
-
-		const parsedavailableResponse = await availableResponse.json();
-		console.log(parsedavailableResponse, "<--- This is parsedavailableResponse")
-		// This is 8 new availailtibies but game id player id is null. every available is true 
-		// This and state should be the same but they are different
-
-		// need to get the id out of this
-		// const playerId = this.props
-		// this.setState({player_id: playerId})
+				// games: this.state.games,		
+				player_id: this.props.playerId,
+				game_id: gameId
 		
+			})
+	 	})
+	 	const parsedavailableResponse = await availableResponse.json();
+	 	console.log(parsedavailableResponse, "<--- This is parsedavailableResponse")
+
+	 	const availableId = parsedavailableResponse.available.id
+
+	 	checkbox.id = availableId
+
+	}
+
+	removeAvailability =  async (id) => {
+
+		console.log("removeAvailability is running")
+		const removeResponse = await fetch("http://localhost:9292/available/players/" + id, {
+			method: "DELETE"
+			// credentials: 'include', 
+		})
+		const parsedremoveResponse = await removeResponse.json()
+		console.log(parsedremoveResponse, "<-- This is parsedavailableResponse")
 	}
 								
 	render() {
 
 		console.log(this.state, "<--- this.state in render in GameContainer");
+		console.log(this.state.games, "<---this is this.state.games")
+		console.log(this.state.games[0], "<--this is available in render")
 		// console.log(this.props, "<--- This is props in GameContainer")
 		return (
 

@@ -3,11 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/css/bootstrap-theme.css';
-import PlayerRegistration from './PlayerRegistration'
-import PlayerLogin from './PlayerLogin'
 import PlayerContainer from './PlayerContainer'
-import GameContainer from './GameContainer'
-import TeamLoginRegister from './TeamLoginRegister'
 import TeamContainer from './TeamContainer'
 
 
@@ -18,8 +14,7 @@ class App extends Component {
     this.state = {
       whichApp: "",
       buttons: true,
-      playerId: ""
-
+    
     }
   }
 

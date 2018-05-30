@@ -7,10 +7,11 @@ const Games = (props) => {
 	const gamesList = props.games.map((game, i) => {
 		
 		return( 
+
 			<li className="games" data-gid={game.id} key={game.id}>{game.game_time} PM<br/>
 				{game.game_date} <br />
 				Team {game.team1_id} VS. Team {game.team2_id} <br/>
-				<input type="checkbox" id='checkbox' name="checkbox" onChange={props.handleCheck} />
+				<input type="checkbox" name="checkbox" value={game.available === true} onChange={props.handleCheck} />
 			</li>
 		)
 
@@ -35,3 +36,5 @@ const Games = (props) => {
 
 
 export default Games;
+
+// checked={game.available === true}
