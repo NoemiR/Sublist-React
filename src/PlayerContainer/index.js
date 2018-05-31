@@ -1,10 +1,9 @@
 import React, {Component} from 'react';
 import PlayerRegistration from '../PlayerRegistration';
-import Players from '../Players'
+// import Players from '../Players'
 import GameContainer from '../GameContainer'
 import './style.css'
 import PlayerLogin from '../PlayerLogin'
-import Games from '../Games'
 
 class PlayerContainer extends Component {
 	constructor(){
@@ -19,6 +18,7 @@ class PlayerContainer extends Component {
 			loginOrRegister: '',
       		buttons: true,
       		loginError: "",
+      		username: ""
 		}
 	}
 	componentDidMount(){
@@ -116,7 +116,8 @@ class PlayerContainer extends Component {
 		if(parsedLoginResponse.success){
 			this.setState({
 				loggedIn: true,
-				playerId: parsedLoginResponse.player_id
+				playerId: parsedLoginResponse.player_id,
+				username: parsedLoginResponse.username
 			})
 		
 		}else{
@@ -130,7 +131,7 @@ class PlayerContainer extends Component {
 		const logoutResponsePromise = await fetch('http://localhost:9292/player/logout', {
 			credentials: 'include', 
 		})
-		this.setState({loggedIn: false,})
+		this.setState({loggedIn: false})
 	}
 
 	handleClick = (e) => {
@@ -145,7 +146,7 @@ class PlayerContainer extends Component {
 		// console.log(this.state, 'this is state in PlayerContainer---------------------------')
 		if(this.state.loggedIn) {
 
-			return <GameContainer doLogout={this.doLogout}playerId={this.state.playerId}/>
+			return <GameContainer username={this.state.username} doLogout={this.doLogout}playerId={this.state.playerId}/>
 		}
 
 		else  {

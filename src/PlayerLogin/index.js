@@ -1,6 +1,5 @@
 import React, {Component} from 'react'
-import Players from '../Players'
-import GameContainer from '../GameContainer'
+// import Players from '../Players'
 import PlayerContainer from '../PlayerContainer'
 import './style.css'
 
@@ -36,7 +35,7 @@ class Login extends Component {
 
 
   	render(){
-
+  	
 
 	    return (
 	    	this.state.backButtonLogin
@@ -57,7 +56,8 @@ class Login extends Component {
 				</div>
 				:
 				<div>
-					<PlayerContainer />
+					<PlayerContainer/>
+
 				</div>
 
 	    )

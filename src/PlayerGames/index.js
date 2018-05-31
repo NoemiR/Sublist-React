@@ -3,8 +3,6 @@ import PlayerInfoModal from '../PlayerInfoModal'
 import './style.css'
 
 
-// This is what you see when you are logged in on Team Side
-
 class PlayerGames extends Component {
 	constructor(){
 		super()
@@ -41,7 +39,6 @@ class PlayerGames extends Component {
 		console.log(this.state, "this is state in render in the PlayerGames Component")
 
 		const gamesList = this.props.games.map((game, i) => {
-		// console.log(game, "<--- This is game in gamesList");
 			return <li className="player-games"key={game.id}> <br/>
 				{game.game_date}  <br/>
 				{game.game_time} PM <br/>

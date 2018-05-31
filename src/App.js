@@ -30,7 +30,7 @@ class App extends Component {
 
 
   render() {
-    // console.log(this.state, " <----this.state in App.js")
+
     return (
 
       this.state.buttons 

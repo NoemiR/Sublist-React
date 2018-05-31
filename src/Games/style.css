@@ -34,6 +34,9 @@ body {
 .logout{
 	display: flex;
 	margin-left: auto;
+}
 
-
+.username {
+	/*display: flex;*/
+	margin-left: auto;
 }

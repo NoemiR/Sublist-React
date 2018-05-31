@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Games from '../Games'
-import PlayerGames from '../PlayerGames'
+
 
 class GameContainer extends Component {
 	constructor() {
@@ -24,8 +24,6 @@ class GameContainer extends Component {
 
 		const id = this.props.playerId
 
-		// console.log("This is before the fetch api call")
-
 		const gamesJson = await fetch("http://localhost:9292/player/signedup/" + id, {
         	credentials: 'include'
      	}); 
@@ -37,22 +35,12 @@ class GameContainer extends Component {
 	}
 	handleCheck = (event) => {
 
-		// Checkbox needs to be checked when user signs back in for those games they are available for
-
-
 		const gameId = event.currentTarget.parentNode.dataset.gid
-		// // console.log(event.currentTarget.parentNode.dataset.gid.value, "<--this is e.current.target.value")
-		// console.log(gameId, "<--- This is gameId")
-		const checkbox = event.currentTarget
-		// console.log(event.currentTarget, "THIS IS CURRENT TARGET")
 
-		console.log(checkbox.id, "<--- This is id of checkbox")
-		console.log(checkbox.value, "<--- This is value of checkbox")
-		// This only registers on the SECOND click. gives id/value of availability 
+		const checkbox = event.currentTarget
 	
 		if(checkbox.checked){
 			console.log(gameId, "was clicked and checkbox is on")
-			// change available FOR ONLY THAT GAME (game.available) to true
 			this.addAvailability(checkbox, gameId)
 
 
@@ -60,7 +48,7 @@ class GameContainer extends Component {
 			console.log(gameId, "was clicked checkbox is off")
 			// keep available FOR ONLY THAT GAME false 
 			const id = event.currentTarget.id
-			// WHEN THIS IS ALREADY CHECKED IT IT DOES NOT HAVE AN availability ID 
+
 			console.log(id, "<-- this is id in else statement")
 			this.removeAvailability(gameId, id)
 		}
@@ -89,6 +77,8 @@ class GameContainer extends Component {
 		newGame[gameId - 1].available = true
 		newGame[gameId - 1].availability_id = availableId
 
+
+
 	 	if(parsedavailableResponse.success) {
 	 		this.setState({
 	 			games: newGame
@@ -99,7 +89,6 @@ class GameContainer extends Component {
 	}
 
 	removeAvailability =  async (gameId, id) => {
-		// const id = event.currentTarget.id
 		console.log(gameId, "<< This is gameId in removeAvailability")
 		console.log(id, "<< This is id in removeAvailability")
 		console.log("removeAvailability is running")
@@ -125,11 +114,12 @@ class GameContainer extends Component {
 
 		console.log(this.state, "<--- this.state in render in GameContainer");
 		console.log(this.state.games, "<---this is this.state.games")
-		// console.log(this.props, "<--- This is props in GameContainer")
+		// console.log(this.props.username, "<--- This is username in GameContainer")
+
 		return (
 
 			<div>
-				<Games handleCheck={this.handleCheck} games={this.state.games} />	
+				<Games username={this.props.username}handleCheck={this.handleCheck} games={this.state.games} />	
 			</div>
 
 		)

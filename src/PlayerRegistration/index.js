@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import GameContainer from '../GameContainer'
 import PlayerContainer from '../PlayerContainer'
 import './style.css'
 
@@ -40,8 +39,6 @@ class PlayerRegistration extends Component {
 
 	render(){
 
-		// console.log(this.state, "<-- this is state in PlayerRegistration");
-	
 		return(
 
 			this.state.backButton 
@@ -66,7 +63,7 @@ class PlayerRegistration extends Component {
 			</div>
 			:
 			<div>
-				<PlayerContainer />
+				<PlayerContainer username={this.state.username} />
 			</div>
 			
 

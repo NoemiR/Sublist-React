@@ -3,7 +3,6 @@ import './style.css'
 
 
 const PlayerInfoModal = (props) => {
-	console.log(props, "<-------- this is props in the PlayerInfoModal()")
 	
 		let playerList;
 		if(props.availPlayers != undefined){

@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import TeamLoginRegister from '../TeamLoginRegister'
-import Players from '../Players'
-import Games from '../Games'
+// import Players from '../Players'
 import PlayerGames from '../PlayerGames'
-import PlayerRegistration from '../PlayerRegistration'
-import PlayerInfoModal from '../PlayerInfoModal'
+
+
 
 class TeamContainer extends Component {
     constructor(){
@@ -16,16 +15,6 @@ class TeamContainer extends Component {
             loginError: "",
             loggedIn: false
         }
-    }
-    componentDidMount(){
-        // this.getPlayers()
-        // .then((players) => {
-        //  this.setState({players: players.all_players})
-        // })
-        // .catch((err) => {
-        //  console.log(err)
-        // })
-    
     }
     getGames = async () => {
         // console.log("This is before the fetch api call")
@@ -117,7 +106,6 @@ class TeamContainer extends Component {
 
 
     render(){
-        console.log(this.state, "<--- This is this.state in render in Team Container")
         return(
             <div>
                 {

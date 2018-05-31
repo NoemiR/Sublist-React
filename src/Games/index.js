@@ -1,10 +1,10 @@
 import React from 'react';
-import GameContainer from '../GameContainer'
 import './style.css'
 
 const Games = (props) => {
-
+	console.log(props, "<--- this is props in gamess")
 	const gamesList = props.games.map((game, i) => {
+
 		
 		return( 
 
@@ -21,7 +21,8 @@ const Games = (props) => {
 
 		<div>
 
-			<form>
+			<form>	
+				<h4 className="username">Hi {props.username}</h4>
 				<button onClick={props.doLogout}className='logout'>Log Out</button>
 				<h1 className="schedule">Game Schedule</h1>
 				<h4 className="schedule">Check the games you are available for!</h4>
