@@ -10,6 +10,7 @@ class PlayerContainer extends Component {
 		super();
 		this.state = {
 			playerId: '',
+			username: "",
 			players: [],
 			modalOpen: false,
 			editPlayer: '',
@@ -17,8 +18,8 @@ class PlayerContainer extends Component {
 			register: true,
 			loginOrRegister: '',
       		buttons: true,
-      		loginError: "",
-      		username: ""
+      		loginError: ""
+      		
 		}
 	}
 	componentDidMount(){
