@@ -18,7 +18,7 @@ class TeamContainer extends Component {
     }
     getGames = async () => {
         // console.log("This is before the fetch api call")
-        const gamesJson = await fetch("http://localhost:9292.com/games", {
+        const gamesJson = await fetch("https://sublist.herokuapp.com/games", {
             credentials: 'include'
         }); 
           const games = await gamesJson.json()
