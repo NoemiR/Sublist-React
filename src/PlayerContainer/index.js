@@ -34,7 +34,7 @@ class PlayerContainer extends Component {
 	}
 	getPlayers = async () => {
 
-		const playersJson = await fetch('http://localhost:9292/player',{
+		const playersJson = await fetch('https://sublist.herokuapp.com/player',{
 			credentials: 'include'
 		})
 		const players = await playersJson.json();
@@ -44,7 +44,7 @@ class PlayerContainer extends Component {
 	}
 	addPlayer = async (name, username, password, pos, email, phone) => {
 		console.log('this is in add player')
-		const playersJson = await fetch('http://localhost:9292/player',{
+		const playersJson = await fetch('https://sublist.herokuapp.com/player',{
 			method: 'POST',
 			credentials: 'include',
 			body: JSON.stringify({
@@ -75,7 +75,7 @@ class PlayerContainer extends Component {
 		console.log(email, "this is email")
 		console.log(phone, "this is phone")
 
-		const responsePromise = await fetch('http://localhost:9292/player/register', {
+		const responsePromise = await fetch('https://sublist.herokuapp.com/player/register', {
 
 			method: 'POST',
 			credentials: 'include', 
@@ -87,8 +87,7 @@ class PlayerContainer extends Component {
 				email: email,
 				phone: phone
 			})
-			
-
+	
 		})
 		const parsedRegisterResponse = await responsePromise.json();
 		console.log(parsedRegisterResponse, "<----this is parsedRegisterResponse  in doRegister")
@@ -104,7 +103,7 @@ class PlayerContainer extends Component {
 
 
 	doLogin = async (username, password) => {
-		const responsePromise = await fetch('http://localhost:9292/player/login', {
+		const responsePromise = await fetch('https://sublist.herokuapp.com/player/login', {
 			method: 'POST',
 			credentials: 'include', //you must include thiss line
 			body: JSON.stringify({
@@ -129,7 +128,7 @@ class PlayerContainer extends Component {
 	}
 
 	doLogout = async () => {
-		const logoutResponsePromise = await fetch('http://localhost:9292/player/logout', {
+		const logoutResponsePromise = await fetch('https://sublist.herokuapp.com/player/logout', {
 			credentials: 'include', 
 		})
 		this.setState({loggedIn: false})
@@ -154,7 +153,6 @@ class PlayerContainer extends Component {
 
 
 			return (
-
 		
 				this.state.buttons 
 		      	?
