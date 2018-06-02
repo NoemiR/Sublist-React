@@ -18,7 +18,7 @@ class PlayerGames extends Component {
 		e.preventDefault();
 		const id = e.currentTarget.id;
 
-		const availplayersJson = await fetch("https://sublist.herokuapp/available/games/players/" + id, {
+		const availplayersJson = await fetch("https://sublist.herokuapp.com/available/games/players/" + id, {
 			credentials: 'include'
 		})
 		const availPlayers = await availplayersJson.json()
