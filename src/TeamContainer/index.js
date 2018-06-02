@@ -29,7 +29,7 @@ class TeamContainer extends Component {
     getAvailPlayers = async (e) => {
         const id = e.currentTarget.id
     
-        const availplayersJson = await fetch("https://sublist.herokuapp.com/available/games/players/" + id, {
+        const availplayersJson = await fetch("https://sublist.herokuapp/available/games/players/" + id, {
             credentials: 'include'
         })
         const availPlayers = await availplayersJson.json()
@@ -41,7 +41,7 @@ class TeamContainer extends Component {
     }
     doLogin = async (username, password) => {
             console.log("You are trying to Log In ");
-            const resolvedLoginPromise = await fetch('https://sublist.herokuapp.com/team/login', {
+            const resolvedLoginPromise = await fetch('https://sublist.herokuapp/team/login', {
               method: "POST",
               credentials: 'include', 
               body: JSON.stringify({
@@ -72,7 +72,7 @@ class TeamContainer extends Component {
     }
     doRegister = async (username, password) => {
         
-            const resolvedRegisterPromise = await fetch('https://sublist.herokuapp.com/team/register', {
+            const resolvedRegisterPromise = await fetch('https://sublist.herokuapp/team/register', {
               method: "POST",
               credentials: 'include', 
               body: JSON.stringify({
@@ -98,7 +98,7 @@ class TeamContainer extends Component {
     }
 
     doLogoutTeam = async () => {
-        const logoutResponsePromise = await fetch('https://sublist.herokuapp.com/team/logout', {
+        const logoutResponsePromise = await fetch('https://sublist.herokuapp/team/logout', {
             credentials: 'include', 
         })
         this.setState({loggedIn: false})
