@@ -24,7 +24,7 @@ class GameContainer extends Component {
 
 		const id = this.props.playerId
 
-		const gamesJson = await fetch("https://sublist.herokuapp.com/player/signedup/" + id, {
+		const gamesJson = await fetch(process.env.REACT_APP_DEV_API_URL+ "player/signedup/" + id, {
         	credentials: 'include'
      	}); 
 		const games = await gamesJson.json()
@@ -58,7 +58,7 @@ class GameContainer extends Component {
 	addAvailability = async (checkbox, gameId) => {
 
 		console.log("addAvailability is running")
-		const availableResponse = await fetch("https://sublist.herokuapp.com/available/players", {
+		const availableResponse = await fetch(process.env.REACT_APP_DEV_API_URL+ 'available/players', {
 			method: "POST", 		
 			credentials: 'include', 
 			body: JSON.stringify({
@@ -90,7 +90,7 @@ class GameContainer extends Component {
 		console.log(gameId, "<< This is gameId in removeAvailability")
 		console.log(id, "<< This is id in removeAvailability")
 		console.log("removeAvailability is running")
-		const removeResponse = await fetch("https://sublist.herokuapp.com/available/players/" + id, {
+		const removeResponse = await fetch(process.env.REACT_APP_DEV_API_URLavailabl+ "players/" + id, {
 			method: "DELETE",
 			credentials: 'include'
 		})

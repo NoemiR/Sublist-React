@@ -34,7 +34,7 @@ class PlayerContainer extends Component {
 	}
 	getPlayers = async () => {
 
-		const playersJson = await fetch('https://sublist.herokuapp.com/player',{
+		const playersJson = await fetch(process.env.REACT_APP_DEV_API_URL + 'player',{
 			credentials: 'include'
 		})
 		const players = await playersJson.json();
@@ -44,7 +44,7 @@ class PlayerContainer extends Component {
 	}
 	addPlayer = async (name, username, password, pos, email, phone) => {
 		console.log('this is in add player')
-		const playersJson = await fetch('https://sublist.herokuapp.com/player',{
+		const playersJson = await fetch(process.env.REACT_APP_DEV_API_URL + 'player',{
 			method: 'POST',
 			credentials: 'include',
 			body: JSON.stringify({
@@ -75,7 +75,7 @@ class PlayerContainer extends Component {
 		console.log(email, "this is email")
 		console.log(phone, "this is phone")
 
-		const responsePromise = await fetch('https://sublist.herokuapp.com/player/register', {
+		const responsePromise = await fetch(process.env.REACT_APP_DEV_API_URL + 'player/register', {
 
 			method: 'POST',
 			credentials: 'include', 
@@ -103,7 +103,7 @@ class PlayerContainer extends Component {
 
 
 	doLogin = async (username, password) => {
-		const responsePromise = await fetch('https://sublist.herokuapp.com/player/login', {
+		const responsePromise = await fetch(process.env.REACT_APP_DEV_API_URL+ 'player/login', {
 			method: 'POST',
 			credentials: 'include', //you must include thiss line
 			body: JSON.stringify({
@@ -128,7 +128,7 @@ class PlayerContainer extends Component {
 	}
 
 	doLogout = async () => {
-		const logoutResponsePromise = await fetch('https://sublist.herokuapp.com/player/logout', {
+		const logoutResponsePromise = await fetch(process.env.REACT_APP_DEV_API_URL+ 'player/logout', {
 			credentials: 'include', 
 		})
 		this.setState({loggedIn: false})
