@@ -89,13 +89,12 @@ class GameContainer extends Component {
 	removeAvailability =  async (gameId, id) => {
 		console.log(gameId, "<< This is gameId in removeAvailability")
 		console.log(id, "<< This is id in removeAvailability")
-		console.log("removeAvailability is running")
-		const removeResponse = await fetch("https://sublist.herokuapp.com/players/" + id, {
+		const removeResponse = await fetch("https://sublist.herokuapp.com/available/players/" + id, {
 			method: "DELETE",
 			credentials: 'include'
 		})
 		const parsedremoveResponse = await removeResponse.json()
-		console.log(parsedremoveResponse, "<-- This is parsedavailableResponse")
+		// console.log(parsedremoveResponse, "<-- This is parsedavailableResponse")
 
 		const newGameRemove = [...this.state.games]
 
