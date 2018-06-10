@@ -18,7 +18,6 @@ class EditModal extends Component {
 		
 	}
 	handleISubmit = (e) => {
-		console.log(this.props.editPlayer.id)
 		this.props.editPlayer(this.state.inputVal, this.props.editedPlayer.id)
 
 	}

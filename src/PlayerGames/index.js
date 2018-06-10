@@ -23,7 +23,6 @@ class PlayerGames extends Component {
 		})
 		const availPlayers = await availplayersJson.json()
 
-			console.log(availPlayers, "<-----this is availPlayers")
 		this.setState({
 			availPlayers: availPlayers,
 			modalOpen: true
@@ -35,8 +34,6 @@ class PlayerGames extends Component {
 	}	
 
 	render(){
-
-		console.log(this.state, "this is state in render in the PlayerGames Component")
 
 		const gamesList = this.props.games.map((game, i) => {
 			return <li className="player-games"key={game.id}> <br/>

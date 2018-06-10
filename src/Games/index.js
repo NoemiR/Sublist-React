@@ -2,7 +2,6 @@ import React from 'react';
 import './style.css'
 
 const Games = (props) => {
-	console.log(props, "<--- this is props in gamess")
 	const gamesList = props.games.map((game, i) => {
 
 		

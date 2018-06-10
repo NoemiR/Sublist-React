@@ -38,12 +38,10 @@ class PlayerContainer extends Component {
 			credentials: 'include'
 		})
 		const players = await playersJson.json();
-		console.log(players, '<-- this is players in getPlayers()')
 			return players;
 	
 	}
 	addPlayer = async (name, username, password, pos, email, phone) => {
-		console.log('this is in add player')
 		const playersJson = await fetch('https://sublist.herokuapp.com/player',{
 			method: 'POST',
 			credentials: 'include',
@@ -60,7 +58,6 @@ class PlayerContainer extends Component {
 		// console.log(playersJson, "<-- this is players json")
 
 		const newPlayer = await playersJson.json();
-		console.log(newPlayer, "<---- newPlayer in addPlayer()")
 		
 			this.setState({players: [...this.state.players, newPlayer.player]});
 	
@@ -69,11 +66,6 @@ class PlayerContainer extends Component {
 
 
 	doRegister = async (name, username, password, pos, email, phone) => {
-		console.log("this is inside do Register")
-		console.log(name, 'this is name')
-		console.log(pos, 'this is poooooooos')
-		console.log(email, "this is email")
-		console.log(phone, "this is phone")
 
 		const responsePromise = await fetch('https://sublist.herokuapp.com/player/register', {
 
@@ -90,15 +82,11 @@ class PlayerContainer extends Component {
 	
 		})
 		const parsedRegisterResponse = await responsePromise.json();
-		console.log(parsedRegisterResponse, "<----this is parsedRegisterResponse  in doRegister")
-		console.log(parsedRegisterResponse.player_id, "<--- This is playerid")
 		const player_id = parsedRegisterResponse.player_id
 		this.setState({
 			playerId: player_id,
 			loggedIn: true
 		})
-
-		console.log(this.state, "this is state in do register after player id is assigned")
 	}
 
 
@@ -111,7 +99,7 @@ class PlayerContainer extends Component {
 				password: password
 			})
 		})
-		console.log(parsedLoginResponse)
+
 		const parsedLoginResponse = await responsePromise.json();
 		if(parsedLoginResponse.success){
 			this.setState({
@@ -135,7 +123,6 @@ class PlayerContainer extends Component {
 	}
 
 	handleClick = (e) => {
-	    console.log(e.currentTarget.id)
 	    this.setState({
 		    buttons: false,
 		    loginOrRegister: e.currentTarget.id
@@ -143,7 +130,6 @@ class PlayerContainer extends Component {
 	}
 	
 	render(){
-		// console.log(this.state, 'this is state in PlayerContainer---------------------------')
 		if(this.state.loggedIn) {
 
 			return <GameContainer username={this.state.username} doLogout={this.doLogout}playerId={this.state.playerId}/>

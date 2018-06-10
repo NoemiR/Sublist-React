@@ -20,7 +20,6 @@ class GameContainer extends Component {
 		})
 	}
 	getGames = async () => {
-		console.log('getGames() is running')
 
 		const id = this.props.playerId
 
@@ -28,7 +27,6 @@ class GameContainer extends Component {
         	credentials: 'include'
      	}); 
 		const games = await gamesJson.json()
-		console.log(games, "this is games in getGames")
 
     	return games
 	
@@ -40,24 +38,20 @@ class GameContainer extends Component {
 		const checkbox = event.currentTarget
 	
 		if(checkbox.checked){
-			console.log(gameId, "was clicked and checkbox is on")
 			this.addAvailability(checkbox, gameId)
 
 
 		} else {
-			console.log(gameId, "was clicked checkbox is off")
-			// keep available FOR ONLY THAT GAME false 
+	
 			const id = event.currentTarget.id
-
-			console.log(id, "<-- this is id in else statement")
 			this.removeAvailability(gameId, id)
 		}
-			console.log(event.currentTarget.value, "<-- this is value of event")
+			
 	}
 
 	addAvailability = async (checkbox, gameId) => {
 
-		console.log("addAvailability is running")
+	
 		const availableResponse = await fetch('https://sublist.herokuapp.com/available/players', {
 			method: "POST", 		
 			credentials: 'include', 
@@ -68,7 +62,7 @@ class GameContainer extends Component {
 			})
 	 	})
 	 	const parsedavailableResponse = await availableResponse.json();
-	 	console.log(parsedavailableResponse, "<--- This is parsedavailableResponse")
+	
 
 	 	const availableId = parsedavailableResponse.available.id
 
@@ -87,14 +81,12 @@ class GameContainer extends Component {
 	}
 
 	removeAvailability =  async (gameId, id) => {
-		console.log(gameId, "<< This is gameId in removeAvailability")
-		console.log(id, "<< This is id in removeAvailability")
 		const removeResponse = await fetch("https://sublist.herokuapp.com/available/players/" + id, {
 			method: "DELETE",
 			credentials: 'include'
 		})
 		const parsedremoveResponse = await removeResponse.json()
-		// console.log(parsedremoveResponse, "<-- This is parsedavailableResponse")
+	
 
 		const newGameRemove = [...this.state.games]
 
@@ -108,10 +100,6 @@ class GameContainer extends Component {
 	}
 								
 	render() {
-
-		console.log(this.state, "<--- this.state in render in GameContainer");
-		console.log(this.state.games, "<---this is this.state.games")
-		// console.log(this.props.username, "<--- This is username in GameContainer")
 
 		return (
 

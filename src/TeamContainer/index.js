@@ -22,7 +22,6 @@ class TeamContainer extends Component {
             credentials: 'include'
         }); 
           const games = await gamesJson.json()
-          console.log(games, "<-- This is games in getGames Function");
           return games
         
     }
@@ -33,14 +32,12 @@ class TeamContainer extends Component {
             credentials: 'include'
         })
         const availPlayers = await availplayersJson.json()
-        console.log(availPlayers, "<-- This is availPlayers")
       
     }
     openModal = () => {
         
     }
     doLogin = async (username, password) => {
-            console.log("You are trying to Log In ");
             const resolvedLoginPromise = await fetch('https://sublist.herokuapp.com/team/login', {
               method: "POST",
               credentials: 'include', 
@@ -50,15 +47,12 @@ class TeamContainer extends Component {
           })
         })
         const parsedLoginResponse = await resolvedLoginPromise.json()
-        console.log("heres what happened when you tried to login")
-        console.log(parsedLoginResponse)
         if(parsedLoginResponse.success) {
             this.setState({
                 loggedIn: true
             })
             this.getGames()
               .then((games) => {
-                console.log(games)
                 this.setState({games: games.all_games})
               })
               .catch((err) => {
@@ -81,8 +75,7 @@ class TeamContainer extends Component {
           })
         })
             const parsedRegisterResponse = await resolvedRegisterPromise.json()
-            console.log("heres what happened when you tried to Register")
-            console.log(parsedRegisterResponse)
+
             if(parsedRegisterResponse.success) {
                 this.setState({
                     loggedIn: true
